@@ -17,5 +17,5 @@ start = "againstlolodds.main:start"
 rift_explorer = "scripts:run_rift_explorer"
 
 [build-system]
-requires = ["poetry>=0.12", "npm==10.15.3"]
+requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
