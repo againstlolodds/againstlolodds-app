@@ -1,6 +1,6 @@
 import requests as req
-import json
 import time
+from .connect import Connector
 
 port = 56443
 url = f'https://127.0.0.1:{port}'
@@ -49,5 +49,11 @@ def get_all_players():
 
 
 def main():
-    for players in get_all_players():
-        print(json.dumps(players, indent=4))
+    conn = Connector()
+    conn.start()
+
+    while True:
+        print(conn.port)
+        time.sleep(5)
+    # for players in get_all_players():
+    #     print(json.dumps(players, indent=4))
