@@ -7,14 +7,15 @@ url = f'https://127.0.0.1:{port}'
 
 
 headers = {
-    'Authorization': 'Basic cmlvdDpSWTFMQXhYRUdHdDl6NmV6UVpDZS1n',
+    # 'Authorization': 'Basic cmlvdDpSWTFMQXhYRUdHdDl6NmV6UVpDZS1n',
     'Accept': 'application/json'
 }
 
 
-def get_session():
+def get_session(conn):
     return req.get(
-        f'{url}/lol-champ-select/v1/session',
+        f'{conn.url}/lol-champ-select/v1/session',
+        auth=conn.auth,
         headers=headers,
         verify=False
     )
@@ -31,9 +32,9 @@ def parse_session(r: dict) -> dict:
     }
 
 
-def wait_for_session() -> dict:
+def wait_for_session(conn) -> dict:
     while True:
-        r = get_session()
+        r = get_session(conn)
         if r.status_code != 200:
             time.sleep(1)
             continue
@@ -41,8 +42,8 @@ def wait_for_session() -> dict:
         return r.json()
 
 
-def get_all_players():
-    session = wait_for_session()
+def get_all_players(conn):
+    session = wait_for_session(conn)
     while True:
         time.sleep(1)
         yield parse_session(session)
@@ -52,8 +53,5 @@ def main():
     conn = Connector()
     conn.start()
 
-    while True:
-        print(conn.port)
-        time.sleep(5)
-    # for players in get_all_players():
-    #     print(json.dumps(players, indent=4))
+    for players in get_all_players(conn):
+        print(json.dumps(players, indent=4))
