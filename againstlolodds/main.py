@@ -1,6 +1,6 @@
 import requests as req
 import time
-from .connect import Connector
+from lcu_connectorpy import Connector
 
 port = 56443
 url = f'https://127.0.0.1:{port}'
