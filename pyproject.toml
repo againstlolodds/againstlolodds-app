@@ -9,14 +9,23 @@ python = "^3.7"
 requests = "^2.21"
 watchdog = "^0.9.0"
 psutil = "^5.6"
-lcu_connectorpy = "1.0.2"
+lcu_connectorpy = "1.0.5"
+docutils = "^0.14.0"
+pygments = "^2.3"
+pypiwin32 = "^223.0"
+"kivy.deps.sdl2" = "^0.1.18"
+"kivy.deps.angle" = "^0.1.7"
+"kivy.deps.gstreamer" = "^0.1.13"
+cython = "^0.29.7"
+kivy = "^1.10"
+"kivy.deps.glew" = "^0.1.10"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
 flake8 = "^3.7"
 
 [tool.poetry.scripts]
-start = "againstlolodds.main:main"
+start = "againstlolodds.ui.main:run"
 
 [build-system]
 requires = ["poetry>=0.12"]
