@@ -1,9 +1,17 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.image import Image
+from kivy.properties import NumericProperty
+from kivy.animation import Animation
 from kivy.clock import Clock
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import ListProperty
-from ..session import Session
+from .session import Session
+from pathlib import Path
+
+
+RES = Path(__file__).parent.with_name('res')
 
 
 class Player(BoxLayout):
@@ -45,8 +53,12 @@ class MainPage(Screen):
             enemy.members = curr['theirTeam']
 
 
-class LoadingPage(Screen):
+class Loading(FloatLayout):
     pass
+
+
+class LoadingPage(Screen):
+    resdir = RES
 
 
 class Manager(ScreenManager):

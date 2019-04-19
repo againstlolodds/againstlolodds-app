@@ -76,12 +76,32 @@
             Result:
 
 
+# <Loading>:
+#     canvas.before:
+#         PushMatrix
+#         Rotate:
+#             angle: root.angle
+#             axis: 0, 0, 1
+#             origin: root.center
+#     canvas.after:
+#         PopMatrix
+#     Image:
+#         size_hint: None, None
+#         size: 100, 100
+#         pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
 <LoadingPage>:
     name: 'loading'
-    Title:
-        text: 'Waiting for selection phase to begin...'
-    
+    BoxLayout:    
+        orientation: 'vertical'
+        # Title:
+        #     text: 'Waiting for selection phase to begin...'
+        
+        Image:
+            source: str(root.resdir / 'loading.zip')
+            # allow_stretch: True
+            # anim_delay: 1
+
 
 <ManagerPage>:
     orientation: 'vertical'
