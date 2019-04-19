@@ -40,7 +40,6 @@
     session: None
     size_hint_y: None
     height: '50sp'
-    color: (255, 255, 1, 1)
     champion: ''
     name: ''
     role: ''
@@ -77,9 +76,18 @@
     # BoxLayout:
     #     id: header
     #     size_hint_y: .2
-    StackLayout:
-        orientation: 'tb-lr'
-        id: team
+    AnchorLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        StackLayout:
+            size_hint: .95, .95
+            orientation: 'tb-lr'
+            id: team
 
 # <TeamList>:
 #     headers: ['Summoner', 'Champion', 'Role']
