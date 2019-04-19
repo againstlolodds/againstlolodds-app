@@ -1,26 +1,40 @@
+import json
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.clock import Clock
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.properties import ListProperty
-from .session import Session
+from kivy.properties import ListProperty, DictProperty
 from pathlib import Path
+from .session import Session
 
 
 RES = Path(__file__).parent.with_name('res')
+WINRATES_FP = RES / 'winrates.json'
+with WINRATES_FP.open() as fp:
+    WINRATES = json.load(fp)
+
+
+class AttrLabel(Label):
+    pass
+
+
+class Role(Label):
+
+    @property
+    def image_path(self):
+        return str(RES / 'images' / (self.name.upper() + '.png'))
 
 
 class Player(BoxLayout):
 
-    __slots__ = ('name', 'champion')
-
-    def __init__(self, summoner_id, champion_id, session):
+    def __init__(self, data, session):
         super().__init__()
 
         self.session = session
-        self.summoner_id = summoner_id
-        self.champion_id = champion_id
+        self.summoner_id = data['summonerId']
+        self.champion_id = data['championId']
+        self.role = WINRATES.get(self.champion)['role1']
 
     def __get_name(self):
         return self.session.get_summoner_name(
@@ -31,6 +45,13 @@ class Player(BoxLayout):
         return self.session.get_champion_name(
             self.champion_id, summoner_id=self.summoner_id
         ) or 'Unknown'
+
+    def update(self, data):
+        if self.champion_id != data['championId']:
+            self.champion_id = data['championId']
+        self.role = WINRATES.get(self.champion)['role1']
+
+    def 
 
     @property
     def summoner_id(self):
@@ -65,27 +86,24 @@ class Header(Label):
 
 class PlayerList(BoxLayout):
 
-    members = dict()
     member_cls = Player
 
+    members = DictProperty()
     headers = ListProperty()
 
     def update(self, members):
         for mem in members:
-            summoner_id = mem['summonerId']
-            champion_id = mem['championId']
+            id = mem['summonerId']
+            player = self.members.get(id)
+            if player is None:
+                self.add_player(mem)
+            else:
+                player.update(mem)
 
-            player = self.members.get(summoner_id) or self.add_player(
-                summoner_id, champion_id
-            )
-            if player.champion_id != champion_id:
-                player.champion_id = champion_id
-
-    def add_player(self, summoner_id, champion_id) -> Player:
-        player = self.member_cls(summoner_id, champion_id, self.session)
-        self.members[summoner_id] = player
+    def add_player(self, data):
+        player = self.member_cls(data, self.session)
+        self.members[player.summoner_id] = player
         self.team.add_widget(player)
-        return player
 
     def on_headers(self, *args):
         for name in self.headers:

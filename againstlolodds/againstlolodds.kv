@@ -4,6 +4,8 @@
     
     font_size: '30sp'
 
+<AttrLabel>:
+    font_size: '15sp'
 
 <Player>:
     session: None
@@ -12,6 +14,7 @@
     color: (255, 255, 1, 1)
     champion: ''
     name: ''
+    role: ''
     canvas.before:
         Color:
             rgba: .4, .4, .4, 1
@@ -20,17 +23,18 @@
             size: self.size        
 
 <Enemy>: 
-    Label:
+    AttrLabel: 
         text: root.champion
-        font_size: '15sp'
+    AttrLabel:
+        text: root.role
 
 <Friendly>:
-    Label:
+    AttrLabel:
         text: root.name
-        font_size: '15sp'
-    Label:
+    AttrLabel: 
         text: root.champion
-        font_size: '15sp'
+    AttrLabel:
+        name: root.role
 
 <Header>:
     font_size: '20sp'
