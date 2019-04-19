@@ -18,7 +18,7 @@ class TeamList(BoxLayout):
         self.team.clear_widgets()
         for d in self.members:
             player = Player()
-            player.name = self.parent.parent.session.get_summoner_name(
+            player.name = self.parent.parent.parent.session.get_summoner_name(
                 str(d['summonerId'])
             ) or 'Bot'
             player.champion = str(d['championId'] or 'Unknown')
@@ -54,6 +54,10 @@ class Manager(ScreenManager):
 
 
 class ManagerPage(BoxLayout):
+    pass
+
+
+class Result(BoxLayout):
     pass
 
 

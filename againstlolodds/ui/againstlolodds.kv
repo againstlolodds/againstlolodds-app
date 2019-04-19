@@ -8,12 +8,22 @@
 <Player>:
     name: ''
     champion: ''
-    size_hint: 1, .5
+    size_hint_y: None
+    height: '30sp'
     color: (255, 255, 1, 1)
+    canvas.before:
+        Color:
+            rgba: .4, .4, .4, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size        
+    
     Label:
         text: root.name
+        font_size: '15sp'
     Label:
         text: root.champion
+        font_size: '15sp'
 
 
 <TeamList>:
@@ -28,13 +38,23 @@
         size_hint_y: .2
         Label:
             text: 'Name'
-            font_size: '15'
+            font_size: '20'
         Label:
             text: 'Champion ID'
-            font_size: '15'
-    BoxLayout:
-        orientation: 'vertical'
+            font_size: '20'
+    StackLayout:
+        orientation: 'tb-lr'
         id: team
+
+
+<Result>:
+    size_hint_y: .5
+    Label:
+        text: 'Prediction'
+        font_size: '30sp'
+    Label:
+        text: '100%'
+        font_size: '30sp'
 
 
 <MainPage>:
@@ -43,12 +63,18 @@
 
     on_session: self.session.start()
     BoxLayout:
-        TeamList:
-            id: team
-            name: 'Team'
-        TeamList:
-            id: enemy
-            name: 'Enemy'
+        orientation: 'vertical'    
+        BoxLayout:
+            TeamList:
+                id: team
+                name: 'Team'
+            TeamList:
+                id: enemy
+                name: 'Enemy'
+        AnchorLayout:
+            anchor_y: 'bottom'
+            Result:
+
 
 
 <LoadingPage>:
@@ -63,7 +89,8 @@
         text: "AgainstLoLOdds"
         font_size: '40sp'
         size_hint_y: None
-        height: '40sp'
+        color: (.4, .4, .4, 1)
+        height: '60sp'
     Manager:
 
 
