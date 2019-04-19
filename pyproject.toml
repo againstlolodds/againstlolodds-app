@@ -19,6 +19,7 @@ pypiwin32 = "^223.0"
 cython = "^0.29.7"
 kivy = "^1.10"
 "kivy.deps.glew" = "^0.1.10"
+pillow = "^6.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"

@@ -13,7 +13,6 @@ from pathlib import Path
 
 RES = Path(__file__).parent.with_name('res')
 
-
 class Player(BoxLayout):
     pass
 

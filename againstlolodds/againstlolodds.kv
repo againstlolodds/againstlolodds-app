@@ -94,13 +94,13 @@
     name: 'loading'
     BoxLayout:    
         orientation: 'vertical'
-        # Title:
-        #     text: 'Waiting for selection phase to begin...'
-        
         Image:
             source: str(root.resdir / 'loading.zip')
             # allow_stretch: True
-            # anim_delay: 1
+            anim_delay: 1 / 30
+        Title:
+            text: 'Waiting for selection phase to begin'
+        
 
 
 <ManagerPage>:
