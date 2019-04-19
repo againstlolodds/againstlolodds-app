@@ -4,7 +4,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.clock import Clock
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.properties import ListProperty, DictProperty
+from kivy.properties import ListProperty, DictProperty, StringProperty
 from pathlib import Path
 from .session import Session
 
@@ -20,6 +20,11 @@ class AttrLabel(Label):
 
 
 class Role(Label):
+    name = StringProperty()
+
+    def on_name(self, *args):
+        self.image.source = self.image_path
+        self.image.reload()
 
     @property
     def image_path(self):
@@ -39,19 +44,25 @@ class Player(BoxLayout):
     def __get_name(self):
         return self.session.get_summoner_name(
             self.summoner_id
-        ) or 'Bot'
+        ) or ''
 
     def __get_champion(self):
         return self.session.get_champion_name(
             self.champion_id, summoner_id=self.summoner_id
-        ) or 'Unknown'
+        ) or ''
 
     def update(self, data):
         if self.champion_id != data['championId']:
             self.champion_id = data['championId']
         self.role = WINRATES.get(self.champion)['role1']
 
-    def 
+    @property
+    def role(self):
+        return self.display.role.name
+
+    @role.setter
+    def role(self, val):
+        self.display.role.name = val
 
     @property
     def summoner_id(self):
@@ -72,12 +83,12 @@ class Player(BoxLayout):
         self.champion = self.__get_champion()
 
 
-class Enemy(Player):
-    pass
+# class Enemy(Player):
+#     pass
 
 
-class Friendly(Player):
-    pass
+# class Friendly(Player):
+#     pass
 
 
 class Header(Label):
@@ -89,7 +100,7 @@ class PlayerList(BoxLayout):
     member_cls = Player
 
     members = DictProperty()
-    headers = ListProperty()
+    # headers = ListProperty()
 
     def update(self, members):
         for mem in members:
@@ -105,17 +116,17 @@ class PlayerList(BoxLayout):
         self.members[player.summoner_id] = player
         self.team.add_widget(player)
 
-    def on_headers(self, *args):
-        for name in self.headers:
-            self.ids['header'].add_widget(Header(text=name))
+    # def on_headers(self, *args):
+    #     for name in self.headers:
+    #         self.ids['header'].add_widget(Header(text=name))
 
 
-class TeamList(PlayerList):
-    member_cls = Friendly
+# class TeamList(PlayerList):
+#     member_cls = Friendly
 
 
-class EnemyList(PlayerList):
-    member_cls = Enemy
+# class EnemyList(PlayerList):
+#     member_cls = Enemy
 
 
 class MainPage(Screen):

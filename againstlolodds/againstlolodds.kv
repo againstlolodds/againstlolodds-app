@@ -1,40 +1,66 @@
 #:kivy 1.10.1
 
 <Title@Label>:
-    
     font_size: '30sp'
 
 <AttrLabel>:
     font_size: '15sp'
 
-<Player>:
-    session: None
-    size_hint_y: None
-    height: '30sp'
-    color: (255, 255, 1, 1)
-    champion: ''
-    name: ''
-    role: ''
-    canvas.before:
+<Role>:
+    image: image
+    Image:
+        id: image
+
+<Panel@BoxLayout>:
+    orientation: 'vertical'
+    role: role
+    name: name
+    champion: champion
+    BoxLayout:
+        size_hint_y: .3
+        Role:
+            size_hint_x: .4
+            id: role
+        Label:
+            id: name
+            color: (207, 181, 59, 1)
+    BoxLayout:
+        canvas.before:
         Color:
             rgba: .4, .4, .4, 1
         Rectangle:
             pos: self.pos
-            size: self.size        
+            size: self.size
+        Label:
+            id: champion
+            font_size: '30sp'
 
-<Enemy>: 
-    AttrLabel: 
-        text: root.champion
-    AttrLabel:
-        text: root.role
 
-<Friendly>:
-    AttrLabel:
-        text: root.name
-    AttrLabel: 
-        text: root.champion
-    AttrLabel:
-        name: root.role
+<Player>:
+    session: None
+    size_hint_y: None
+    height: '50sp'
+    color: (255, 255, 1, 1)
+    champion: ''
+    name: ''
+    role: ''
+    Panel:
+        id: display
+
+
+# <Enemy>:
+#     AttrLabel:
+#         text: root.champion
+#     Role:
+#         name: root.role
+
+# <Friendly>:
+#     AttrLabel:
+#         text: root.name
+#     AttrLabel:
+#         text: root.champion
+#     Role:
+#         name: root.role
 
 <Header>:
     font_size: '20sp'
@@ -46,21 +72,21 @@
 
     Title:
         text: root.name
-        font_size: '30sp'
+        font_size: '40sp'
         size_hint_y: .3
-    BoxLayout:
-        id: header
-        size_hint_y: .2
+    # BoxLayout:
+    #     id: header
+    #     size_hint_y: .2
     StackLayout:
         orientation: 'tb-lr'
         id: team
 
-<TeamList>:
-    headers: ['Summoner', 'Champion', 'Role']
+# <TeamList>:
+#     headers: ['Summoner', 'Champion', 'Role']
 
 
-<EnemyList>:
-    headers: ['Champion', 'Role']
+# <EnemyList>:
+#     headers: ['Champion', 'Role']
 
 
 <Result>:
@@ -79,13 +105,13 @@
 
     on_session: self.session.start()
     BoxLayout:
-        orientation: 'vertical'    
+        orientation: 'vertical'
         BoxLayout:
-            TeamList:
+            PlayerList:
                 session: root.session
                 id: team
                 name: 'Team'
-            EnemyList:
+            PlayerList:
                 session: root.session
                 id: enemy
                 name: 'Enemy'
@@ -96,7 +122,7 @@
 
 <LoadingPage>:
     name: 'loading'
-    BoxLayout:    
+    BoxLayout:
         orientation: 'vertical'
         Image:
             source: str(root.resdir / 'loading.zip')
