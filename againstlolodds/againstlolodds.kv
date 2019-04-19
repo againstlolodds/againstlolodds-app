@@ -6,18 +6,25 @@
 
 
 <Player>:
-    name: ''
-    champion: ''
+    session: None
     size_hint_y: None
     height: '30sp'
     color: (255, 255, 1, 1)
+    champion: ''
+    name: ''
     canvas.before:
         Color:
             rgba: .4, .4, .4, 1
         Rectangle:
             pos: self.pos
             size: self.size        
-    
+
+<Enemy>: 
+    Label:
+        text: root.champion
+        font_size: '15sp'
+
+<Friendly>:
     Label:
         text: root.name
         font_size: '15sp'
@@ -25,26 +32,31 @@
         text: root.champion
         font_size: '15sp'
 
+<Header>:
+    font_size: '20sp'
 
-<TeamList>:
+<PlayerList>:
     name: ""
     orientation: 'vertical'
     team: team
+
     Title:
         text: root.name
         font_size: '30sp'
         size_hint_y: .3
     BoxLayout:
+        id: header
         size_hint_y: .2
-        Label:
-            text: 'Name'
-            font_size: '20'
-        Label:
-            text: 'Champion ID'
-            font_size: '20'
     StackLayout:
         orientation: 'tb-lr'
         id: team
+
+<TeamList>:
+    headers: ['Summoner', 'Champion', 'Role']
+
+
+<EnemyList>:
+    headers: ['Champion', 'Role']
 
 
 <Result>:
@@ -66,29 +78,17 @@
         orientation: 'vertical'    
         BoxLayout:
             TeamList:
+                session: root.session
                 id: team
                 name: 'Team'
-            TeamList:
+            EnemyList:
+                session: root.session
                 id: enemy
                 name: 'Enemy'
         AnchorLayout:
             anchor_y: 'bottom'
             Result:
 
-
-# <Loading>:
-#     canvas.before:
-#         PushMatrix
-#         Rotate:
-#             angle: root.angle
-#             axis: 0, 0, 1
-#             origin: root.center
-#     canvas.after:
-#         PopMatrix
-#     Image:
-#         size_hint: None, None
-#         size: 100, 100
-#         pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
 <LoadingPage>:
     name: 'loading'
@@ -100,7 +100,6 @@
             anim_delay: 1 / 30
         Title:
             text: 'Waiting for selection phase to begin'
-        
 
 
 <ManagerPage>:

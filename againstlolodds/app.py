@@ -1,9 +1,6 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.image import Image
-from kivy.properties import NumericProperty
-from kivy.animation import Animation
+from kivy.uix.label import Label
 from kivy.clock import Clock
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import ListProperty
@@ -13,24 +10,94 @@ from pathlib import Path
 
 RES = Path(__file__).parent.with_name('res')
 
+
 class Player(BoxLayout):
+
+    __slots__ = ('name', 'champion')
+
+    def __init__(self, summoner_id, champion_id, session):
+        super().__init__()
+
+        self.session = session
+        self.summoner_id = summoner_id
+        self.champion_id = champion_id
+
+    def __get_name(self):
+        return self.session.get_summoner_name(
+            self.summoner_id
+        ) or 'Bot'
+
+    def __get_champion(self):
+        return self.session.get_champion_name(
+            self.champion_id, summoner_id=self.summoner_id
+        ) or 'Unknown'
+
+    @property
+    def summoner_id(self):
+        return self._summoner_id
+
+    @summoner_id.setter
+    def summoner_id(self, val):
+        self._summoner_id = val
+        self.name = self.__get_name()
+
+    @property
+    def champion_id(self):
+        return self._champion_id
+
+    @champion_id.setter
+    def champion_id(self, val):
+        self._champion_id = val
+        self.champion = self.__get_champion()
+
+
+class Enemy(Player):
     pass
 
 
-class TeamList(BoxLayout):
+class Friendly(Player):
+    pass
 
-    members = ListProperty()
 
-    def on_members(self, *args):
-        self.team.clear_widgets()
-        for d in self.members:
-            player = Player()
-            player.name = self.parent.parent.parent.session.get_summoner_name(
-                str(d['summonerId'])
-            ) or 'Bot'
-            player.champion = str(d['championId'] or 'Unknown')
+class Header(Label):
+    pass
 
-            self.team.add_widget(player)
+
+class PlayerList(BoxLayout):
+
+    members = dict()
+    member_cls = Player
+
+    headers = ListProperty()
+
+    def update(self, members):
+        for mem in members:
+            summoner_id = mem['summonerId']
+            champion_id = mem['championId']
+
+            player = self.members.get(summoner_id) or self.add_player(
+                summoner_id, champion_id
+            )
+            if player.champion_id != champion_id:
+                player.champion_id = champion_id
+
+    def add_player(self, summoner_id, champion_id) -> Player:
+        player = self.member_cls(summoner_id, champion_id, self.session)
+        self.members[summoner_id] = player
+        self.team.add_widget(player)
+        return player
+
+    def on_headers(self, *args):
+        for name in self.headers:
+            self.ids['header'].add_widget(Header(text=name))
+
+
+class TeamList(PlayerList):
+    member_cls = Friendly
+
+
+class EnemyList(PlayerList):
+    member_cls = Enemy
 
 
 class MainPage(Screen):
@@ -42,18 +109,13 @@ class MainPage(Screen):
 
     def refresh(self, *args):
         self.session.conn.update()
-        team = self.ids['team']
-        enemy = self.ids['enemy']
-        curr = self.session.get_current()
+        curr = self.session.get_current_session()
+        if curr is None:
+            return
+        self.manager.current = 'main'
 
-        if curr is not None:
-            self.manager.current = 'main'
-            team.members = curr['myTeam']
-            enemy.members = curr['theirTeam']
-
-
-class Loading(FloatLayout):
-    pass
+        self.ids['team'].update(curr['myTeam'])
+        self.ids['enemy'].update(curr['theirTeam'])
 
 
 class LoadingPage(Screen):

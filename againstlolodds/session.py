@@ -1,5 +1,6 @@
 import requests as req
 from lcu_connectorpy import Connector
+from operator import itemgetter
 
 
 class Session:
@@ -11,26 +12,44 @@ class Session:
     def __init__(self):
         self.conn = Connector()
 
-    def __request(self, api):
-        return req.get(
+    def __request(self, api, *args):
+        r = req.get(
             self.conn.url + api,
             auth=self.conn.auth,
             headers=self.headers,
             verify=False
         )
+        if not r.ok:
+            return
 
-    def __get_session(self):
-        return self.__request('/lol-champ-select/v1/session')
-
-    def get_summoner_name(self, id: str):
-        r = self.__request('/lol-summoner/v1/summoners/' + id)
-        if r.ok:
-            return r.json()['displayName']
+        if args:
+            getter = itemgetter(*args)
+            return getter(r.json())
+        return r.json()
 
     def start(self):
         self.conn.start()
 
-    def get_current(self) -> dict:
-        r = self.__get_session()
-        if r.ok:
-            return r.json()
+    def get_summoner_name(self, id: str):
+        return self.__request(f'/lol-summoner/v1/summoners/{id}', 'displayName')
+
+    def get_champion_name(self, champion_id: str, summoner_id=None):
+        summoner_id = summoner_id or self.get_current_summonerid()
+        return self.__request(
+            f'/lol-champions/v1/inventories/{summoner_id}/champions/{champion_id}', 'name'
+        )
+
+    def get_current_session(self) -> dict:
+        return self.__request('/lol-champ-select/v1/session')
+
+    def get_current_summonerid(self):
+        return self.__request('/lol-summoner/v1/current-summoner', 'summonerId')
+
+    def calculate(self, team, enemy):
+        body = [
+            team,
+            enemy,
+            {
+                'region': 'na'
+            }
+        ]
