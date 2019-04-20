@@ -19,6 +19,7 @@ class Session:
             headers=self.headers,
             verify=False
         )
+
         if not r.ok:
             return
 
@@ -61,7 +62,8 @@ class Session:
                 'region': 'na'
             }
         ]
+        import json
         headers = {'Content-Type': 'application/json'}
-        r = req.post('https://againstlolodds.com/api/calc/', headers=headers, json=body)
+        r = req.post('https://againstlolodds.com:3000/api/calc', headers=headers, data=json.dumps(body))
         print(r.status_code)
         return '100%'

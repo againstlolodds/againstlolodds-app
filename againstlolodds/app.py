@@ -1,10 +1,11 @@
 import json
+from threading import Thread
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.clock import Clock
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.properties import DictProperty, StringProperty, NumericProperty
+from kivy.properties import DictProperty, StringProperty
 from pathlib import Path
 from .session import Session
 
@@ -131,17 +132,22 @@ class MainPage(Screen):
     def __init__(self, *args, **kwds):
         super().__init__(*args, **kwds)
 
+        Clock.schedule_once(self.begin)
+
+    def begin(self, *args):
+        if not self.session.conn.connected:
+            Thread(target=self.session.conn.client.reset).start()
+            Clock.schedule_once(self.begin, 5)
+            return
+        self.session.start()
         Clock.schedule_interval(self.refresh, 1)
 
     def refresh(self, *args):
-        self.session.conn.update()
         curr = self.session.get_current_session()
-        if curr is None:
-            return
-        self.manager.current = 'main'
-
-        self.ids['team'].update(curr['myTeam'])
-        self.ids['enemy'].update(curr['theirTeam'])
+        if curr is not None:
+            self.manager.current = 'main'
+            self.ids['team'].update(curr['myTeam'])
+            self.ids['enemy'].update(curr['theirTeam'])
 
 
 class LoadingPage(Screen):

@@ -38,19 +38,16 @@
         role: role
         name: name
         champion: champion
+        Label:
+            id: name
+            color: (207 / 255, 181 / 255, 59 / 255, 1)
+            font_size: '15sp'
         BoxLayout:
-            Role:
-                id: role
-            
-            Label:
-                id: name
-                color: (207 / 255, 181 / 255, 59 / 255, 1)
-                font_size: '15sp'
-        AnchorLayout:    
-            anchor_x: 'left'
             Label:
                 id: champion
                 font_size: '20sp'
+            Role:
+                id: role
 
 
 <Header>:
@@ -68,7 +65,7 @@
     AnchorLayout:
         canvas:
             Color:
-                rgba: 1, 1, 1, 1
+                rgba: .8, .8, .8, .8
             Rectangle:
                 pos: self.pos
                 size: self.size
@@ -101,7 +98,7 @@
     session: app.session
     name: 'main'
 
-    on_session: self.session.start()
+    on_session: self.begin()
     BoxLayout:
         orientation: 'vertical'
         BoxLayout:
