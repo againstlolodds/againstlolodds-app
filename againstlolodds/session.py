@@ -47,23 +47,23 @@ class Session:
         return self.__request('/lol-summoner/v1/current-summoner', 'summonerId')
 
     def calculate(self, team, enemy):
-        body = [
-            [{
-                'summonerName': member.name,
-                'role': member.role,
-                'champion': member.champion,
-                'override': None
-            } for member in team.values()],
-            [{
-                'role': member.role,
-                'champion': member.champion,
-            } for member in enemy.values()],
-            {
-                'region': 'na'
-            }
-        ]
-        import json
-        headers = {'Content-Type': 'application/json'}
-        r = req.post('https://againstlolodds.com:3000/api/calc', headers=headers, data=json.dumps(body))
-        print(r.status_code)
-        return '100%'
+        # body = [
+        #     [{
+        #         'summonerName': member.name,
+        #         'role': member.role,
+        #         'champion': member.champion,
+        #         'override': None
+        #     } for member in team.values()],
+        #     [{
+        #         'role': member.role,
+        #         'champion': member.champion,
+        #     } for member in enemy.values()],
+        #     {
+        #         'region': 'na'
+        #     }
+        # ]
+        # import json
+        # headers = {'Content-Type': 'application/json'}
+        # r = req.post('https://againstlolodds.com:3000/api/calc', headers=headers, data=json.dumps(body))
+        # print(r.status_code)
+        return 'Error'
