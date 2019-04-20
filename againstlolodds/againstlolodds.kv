@@ -10,56 +10,48 @@
     image: image
     Image:
         id: image
-
-<Panel@BoxLayout>:
-    orientation: 'vertical'
-    role: role
-    name: name
-    champion: champion
-    BoxLayout:
-        size_hint_y: .3
-        Role:
-            size_hint_x: .4
-            id: role
-        Label:
-            id: name
-            color: (207, 181, 59, 1)
-    BoxLayout:
-        canvas.before:
-        Color:
-            rgba: .4, .4, .4, 1
-        Rectangle:
-            pos: self.pos
-            size: self.size
-        Label:
-            id: champion
-            font_size: '30sp'
+        allow_stretch: True
+        size_hint: None, None
+        size: root.size
+        pos: root.pos
+        source: str(root.image_path.with_name('unknown.jpg'))
 
 
 <Player>:
     session: None
     size_hint_y: None
     height: '50sp'
+
     champion: ''
     name: ''
     role: ''
-    Panel:
+
+
+    on_champion: 
+        display.champion.text = self.champion
+        
+    on_name: display.name.text = self.name
+    on_role: display.role.name = self.role
+    BoxLayout:
         id: display
+        orientation: 'vertical'
+        role: role
+        name: name
+        champion: champion
+        BoxLayout:
+            Role:
+                id: role
+            
+            Label:
+                id: name
+                color: (207 / 255, 181 / 255, 59 / 255, 1)
+                font_size: '15sp'
+        AnchorLayout:    
+            anchor_x: 'left'
+            Label:
+                id: champion
+                font_size: '20sp'
 
-
-# <Enemy>:
-#     AttrLabel:
-#         text: root.champion
-#     Role:
-#         name: root.role
-
-# <Friendly>:
-#     AttrLabel:
-#         text: root.name
-#     AttrLabel:
-#         text: root.champion
-#     Role:
-#         name: root.role
 
 <Header>:
     font_size: '20sp'
@@ -73,11 +65,8 @@
         text: root.name
         font_size: '40sp'
         size_hint_y: .3
-    # BoxLayout:
-    #     id: header
-    #     size_hint_y: .2
     AnchorLayout:
-        canvas.before:
+        canvas:
             Color:
                 rgba: 1, 1, 1, 1
             Rectangle:
@@ -85,24 +74,25 @@
                 size: self.size
 
         StackLayout:
-            size_hint: .95, .95
+            size_hint: .98, .98
             orientation: 'tb-lr'
             id: team
-
-# <TeamList>:
-#     headers: ['Summoner', 'Champion', 'Role']
-
-
-# <EnemyList>:
-#     headers: ['Champion', 'Role']
+            canvas:
+                Color:
+                    rgba: .01, .01, .01, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
 
 
 <Result>:
     size_hint_y: .5
+    val: val
     Label:
         text: 'Prediction'
         font_size: '30sp'
     Label:
+        id: val
         text: '100%'
         font_size: '30sp'
 
@@ -124,8 +114,17 @@
                 id: enemy
                 name: 'Enemy'
         AnchorLayout:
+            size_hint_y: .2
+            anchor_y: 'bottom'
+            Button:
+                text: 'Calculate'
+                size_hint_x: .2
+                on_release: result.val = root.session.calculate(team.members, enemy.members)
+        AnchorLayout:
+            size_hint_y: .3
             anchor_y: 'bottom'
             Result:
+                id: result
 
 
 <LoadingPage>:
@@ -134,7 +133,6 @@
         orientation: 'vertical'
         Image:
             source: str(root.resdir / 'loading.zip')
-            # allow_stretch: True
             anim_delay: 1 / 30
         Title:
             text: 'Waiting for selection phase to begin'

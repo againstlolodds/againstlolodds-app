@@ -47,9 +47,21 @@ class Session:
 
     def calculate(self, team, enemy):
         body = [
-            team,
-            enemy,
+            [{
+                'summonerName': member.name,
+                'role': member.role,
+                'champion': member.champion,
+                'override': None
+            } for member in team.values()],
+            [{
+                'role': member.role,
+                'champion': member.champion,
+            } for member in enemy.values()],
             {
                 'region': 'na'
             }
         ]
+        headers = {'Content-Type': 'application/json'}
+        r = req.post('https://againstlolodds.com/api/calc/', headers=headers, json=body)
+        print(r.status_code)
+        return '100%'

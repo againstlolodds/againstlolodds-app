@@ -4,7 +4,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.clock import Clock
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.properties import ListProperty, DictProperty, StringProperty
+from kivy.properties import DictProperty, StringProperty, NumericProperty
 from pathlib import Path
 from .session import Session
 
@@ -23,23 +23,25 @@ class Role(Label):
     name = StringProperty()
 
     def on_name(self, *args):
-        self.image.source = self.image_path
+        self.image.source = str(self.image_path)
         self.image.reload()
 
     @property
     def image_path(self):
-        return str(RES / 'images' / (self.name.upper() + '.png'))
+        return RES / 'images' / (self.name.upper() + '.png')
 
 
 class Player(BoxLayout):
 
+    _summoner_id = ''
+    _champion_id = ''
+
     def __init__(self, data, session):
         super().__init__()
-
         self.session = session
+
         self.summoner_id = data['summonerId']
-        self.champion_id = data['championId']
-        self.role = WINRATES.get(self.champion)['role1']
+        self.update(data)
 
     def __get_name(self):
         return self.session.get_summoner_name(
@@ -54,7 +56,10 @@ class Player(BoxLayout):
     def update(self, data):
         if self.champion_id != data['championId']:
             self.champion_id = data['championId']
-        self.role = WINRATES.get(self.champion)['role1']
+
+    def get_roles(self):
+        data = WINRATES.get(self.champion, {})
+        return [v for k, v in data.items() if 'role' in k]
 
     @property
     def role(self):
@@ -83,24 +88,13 @@ class Player(BoxLayout):
         self.champion = self.__get_champion()
 
 
-# class Enemy(Player):
-#     pass
-
-
-# class Friendly(Player):
-#     pass
-
-
 class Header(Label):
     pass
 
 
 class PlayerList(BoxLayout):
 
-    member_cls = Player
-
     members = DictProperty()
-    # headers = ListProperty()
 
     def update(self, members):
         for mem in members:
@@ -110,23 +104,26 @@ class PlayerList(BoxLayout):
                 self.add_player(mem)
             else:
                 player.update(mem)
+        self.sort_roles()
 
     def add_player(self, data):
-        player = self.member_cls(data, self.session)
+        player = Player(data, self.session)
         self.members[player.summoner_id] = player
         self.team.add_widget(player)
 
-    # def on_headers(self, *args):
-    #     for name in self.headers:
-    #         self.ids['header'].add_widget(Header(text=name))
+    def sort_roles(self):
 
+        def map_roles():
+            for member in self.members.values():
+                yield member, member.get_roles()
 
-# class TeamList(PlayerList):
-#     member_cls = Friendly
-
-
-# class EnemyList(PlayerList):
-#     member_cls = Enemy
+        taken = set()
+        for member, roles in sorted(map_roles(), key=lambda x: len(x[1])):
+            for role in roles:
+                if role not in taken:
+                    member.role = role
+                    taken.add(role)
+                    break
 
 
 class MainPage(Screen):
