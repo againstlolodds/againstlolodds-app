@@ -7,7 +7,7 @@ from kivy.clock import Clock
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import DictProperty, StringProperty
 from pathlib import Path
-from .session import Session
+from againstlolodds.session import Session
 
 
 RES = Path(__file__).parent.with_name('res')
@@ -51,7 +51,7 @@ class Player(BoxLayout):
 
     def __get_champion(self):
         return self.session.get_champion_name(
-            self.champion_id, summoner_id=self.summoner_id
+            self.champion_id
         ) or ''
 
     def update(self, data):

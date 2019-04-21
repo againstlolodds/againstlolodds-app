@@ -1,0 +1,7 @@
+('C:\\Users\\Noah\\.pyenv\\pyenv-win\\versions\\3.7.2-amd64\\share\\glew\\bin',
+ None,
+ [],
+ 'DATA',
+ [('glew32.dll',
+   'C:\\Users\\Noah\\.pyenv\\pyenv-win\\versions\\3.7.2-amd64\\share\\glew\\bin\\glew32.dll',
+   'DATA')])

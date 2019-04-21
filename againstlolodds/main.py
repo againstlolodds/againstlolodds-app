@@ -1,4 +1,4 @@
-from .app import AgainstLoLOddsApp
+from againstlolodds.app import AgainstLoLOddsApp
 
 
 def run():

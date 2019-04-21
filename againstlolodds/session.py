@@ -9,6 +9,8 @@ class Session:
        'Accept': 'application/json'
     }
 
+    _champion_cache: dict = {}
+
     def __init__(self):
         self.conn = Connector()
 
@@ -34,11 +36,15 @@ class Session:
     def get_summoner_name(self, id: str):
         return self.__request(f'/lol-summoner/v1/summoners/{id}', 'displayName')
 
-    def get_champion_name(self, champion_id: str, summoner_id=None):
-        summoner_id = summoner_id or self.get_current_summonerid()
-        return self.__request(
-            f'/lol-champions/v1/inventories/{summoner_id}/champions/{champion_id}', 'name'
-        )
+    def get_champion_name(self, champion_id: str):
+        return self.get_all_champions().get(champion_id)
+
+    def get_all_champions(self):
+        if not self._champion_cache:
+            id = self.get_current_summonerid()
+            champions = self.__request(f"/lol-champions/v1/inventories/{id}/champions")
+            self._champion_cache.update({c['id']: c['name'] for c in champions})
+        return self._champion_cache
 
     def get_current_session(self) -> dict:
         return self.__request('/lol-champ-select/v1/session')
@@ -66,4 +72,4 @@ class Session:
         # headers = {'Content-Type': 'application/json'}
         # r = req.post('https://againstlolodds.com:3000/api/calc', headers=headers, data=json.dumps(body))
         # print(r.status_code)
-        return 'Error'
+        return 100

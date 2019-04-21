@@ -84,13 +84,9 @@
 
 <Result>:
     size_hint_y: .5
-    val: val
+    val: 100
     Label:
-        text: 'Prediction'
-        font_size: '30sp'
-    Label:
-        id: val
-        text: '100%'
+        text: 'Prediction: {}%'.format(root.val)
         font_size: '30sp'
 
 
@@ -110,18 +106,18 @@
                 session: root.session
                 id: enemy
                 name: 'Enemy'
-        AnchorLayout:
+        
+        BoxLayout:
             size_hint_y: .2
-            anchor_y: 'bottom'
-            Button:
-                text: 'Calculate'
-                size_hint_x: .2
-                on_release: result.val = root.session.calculate(team.members, enemy.members)
-        AnchorLayout:
-            size_hint_y: .3
-            anchor_y: 'bottom'
-            Result:
-                id: result
+            AnchorLayout:
+                Button:
+                    text: 'Calculate'
+                    size_hint: .4, .6
+                    on_release: result.val = root.session.calculate(team.members, enemy.members)
+            AnchorLayout:
+                anchor_x: 'right'    
+                Result:
+                    id: result
 
 
 <LoadingPage>:
