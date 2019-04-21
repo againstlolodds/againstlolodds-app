@@ -5,9 +5,10 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.clock import Clock
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.properties import DictProperty, StringProperty, ListProperty
+from kivy.properties import StringProperty, ListProperty
 from pathlib import Path
 from againstlolodds.session import Session
+from requests.exceptions import ConnectionError
 
 
 RES = Path(__file__).parent.with_name('res')
@@ -150,13 +151,16 @@ class MainPage(Screen):
         Clock.schedule_interval(self.refresh, 1)
 
     def refresh(self, *args):
-        curr = self.session.get_current_session()
+        try:
+            curr = self.session.get_current_session()
+        except ConnectionError:
+            import sys
+            sys.exit()
+
         if curr is not None:
             self.manager.current = 'main'
             self.ids['team'].update(curr['myTeam'])
             self.ids['enemy'].update(curr['theirTeam'])
-        else:
-            self.manager.current = 'loading'
 
 
 class LoadingPage(Screen):
