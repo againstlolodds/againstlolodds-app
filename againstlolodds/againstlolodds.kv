@@ -26,11 +26,10 @@
     name: ''
     role: ''
 
-
     on_champion: 
         display.champion.text = self.champion
         
-    on_name: display.name.text = self.name
+    on_name: display.name.text = self.name.center(40, '-')
     on_role: display.role.name = self.role
     BoxLayout:
         id: display
@@ -60,7 +59,7 @@
 
     Title:
         text: root.name
-        font_size: '40sp'
+        font_size: '30sp'
         size_hint_y: .3
     AnchorLayout:
         canvas:
@@ -128,16 +127,16 @@
             source: str(root.resdir / 'loading.zip')
             anim_delay: 1 / 30
         Title:
-            text: 'Waiting for selection phase to begin'
+            text: 'Waiting for selection phase to begin...'
 
 
 <ManagerPage>:
     orientation: 'vertical'
     Title:
-        text: "AgainstLoLOdds"
+        text: "Against LoL Odds"
         font_size: '40sp'
         size_hint_y: None
-        color: (.4, .4, .4, 1)
+        color: (.6, .6, .6, 1)
         height: '60sp'
     Manager:
 

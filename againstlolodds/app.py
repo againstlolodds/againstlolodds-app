@@ -5,7 +5,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.clock import Clock
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.properties import DictProperty, StringProperty
+from kivy.properties import DictProperty, StringProperty, ListProperty
 from pathlib import Path
 from againstlolodds.session import Session
 
@@ -95,12 +95,19 @@ class Header(Label):
 
 class PlayerList(BoxLayout):
 
-    members = DictProperty()
+    members = ListProperty()
 
     def update(self, members):
+        bench = self.members.copy()
+
+        def find(id):
+            for i, player in enumerate(bench):
+                if player.summoner_id == id:
+                    return bench.pop(i)
+
         for mem in members:
             id = mem['summonerId']
-            player = self.members.get(id)
+            player = find(id)
             if player is None:
                 self.add_player(mem)
             else:
@@ -109,13 +116,13 @@ class PlayerList(BoxLayout):
 
     def add_player(self, data):
         player = Player(data, self.session)
-        self.members[player.summoner_id] = player
+        self.members.append(player)
         self.team.add_widget(player)
 
     def sort_roles(self):
 
         def map_roles():
-            for member in self.members.values():
+            for member in self.members:
                 yield member, member.get_roles()
 
         taken = set()
@@ -148,6 +155,8 @@ class MainPage(Screen):
             self.manager.current = 'main'
             self.ids['team'].update(curr['myTeam'])
             self.ids['enemy'].update(curr['theirTeam'])
+        else:
+            self.manager.current = 'loading'
 
 
 class LoadingPage(Screen):
