@@ -8,13 +8,15 @@
 
 <Role>:
     image: image
+    background_normal: ''
+    background_color: .1, .1, .1, 1
     Image:
         id: image
         allow_stretch: True
         size_hint: None, None
         size: root.size
         pos: root.pos
-        source: str(root.image_path.with_name('unknown.jpg'))
+        source: str(root.files['unknown'])
 
 
 <Player>:
@@ -47,6 +49,7 @@
                 font_size: '20sp'
             Role:
                 id: role
+                size_hint_x: .3
 
 
 <Header>:

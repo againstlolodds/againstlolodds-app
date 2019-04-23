@@ -4,6 +4,8 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.clock import Clock
+from kivy.uix.button import Button
+from kivy.uix.dropdown import DropDown
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import StringProperty, ListProperty
 from pathlib import Path
@@ -12,6 +14,7 @@ from requests.exceptions import ConnectionError
 
 
 RES = Path(__file__).parent.with_name('res')
+ROLES = RES / 'roles'
 WINRATES_FP = RES / 'winrates.json'
 with WINRATES_FP.open() as fp:
     WINRATES = json.load(fp)
@@ -21,16 +24,39 @@ class AttrLabel(Label):
     pass
 
 
-class Role(Label):
+class Role(Button):
     name = StringProperty()
+    _manual_select = False
+
+    files = {fp.stem: fp for fp in ROLES.iterdir()}
+    main = True
 
     def on_name(self, *args):
-        self.image.source = str(self.image_path)
+        image_fp = self.files.get(self.name) or self.files['unknown']
+        self.image.source = str(image_fp)
         self.image.reload()
 
-    @property
-    def image_path(self):
-        return RES / 'images' / (self.name.upper() + '.png')
+    def on_release(self, *args):
+        if not self.main:
+            return
+
+        def switch(btn):
+            self.name = btn.name
+            self.dropdown.dismiss()
+
+        self.dropdown = DropDown()
+        for name, fp in self.files.items():
+            if name == self.name:
+                continue
+
+            role = Role(size_hint=(None, None))
+            role.name = name
+            role.size = self.size
+            role.main = False
+            role.bind(on_release=switch)
+            self.dropdown.add_widget(role)
+
+        self.dropdown.open(self)
 
 
 class Player(BoxLayout):
