@@ -23,7 +23,6 @@ with WINRATES_FP.open() as fp:
 
 class Role(Button):
     name = StringProperty()
-    _manual_select = False
 
     files = {fp.stem: fp for fp in ROLES.iterdir()}
     main = True
