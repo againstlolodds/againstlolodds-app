@@ -23,7 +23,6 @@ with WINRATES_FP.open() as fp:
 
 class Role(Button):
     name = StringProperty()
-
     files = {fp.stem: fp for fp in ROLES.iterdir()}
     main = True
 
@@ -145,6 +144,9 @@ class PlayerList(BoxLayout):
                 self.add_player(mem)
             else:
                 player.update(mem)
+        # Clear leftover
+        for player in bench:
+            self.team.remove_widget(player)
         self.sort_roles()
 
     def add_player(self, data):
