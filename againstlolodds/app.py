@@ -3,29 +3,29 @@ from threading import Thread
 from kivy.app import App
 from kivy.uix.image import Image
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.label import Label
-from kivy.clock import Clock
 from kivy.uix.button import Button
 from kivy.uix.dropdown import DropDown
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.properties import StringProperty, ListProperty
+from kivy.clock import Clock
+from kivy.properties import StringProperty, ListProperty, ObjectProperty
+
 from pathlib import Path
 from againstlolodds.session import Session
 from requests.exceptions import ConnectionError
+from lcu_connectorpy.connect import RestartRequiredError
 
 
 RES = Path(__file__).parent.with_name('res')
 ROLES = RES / 'roles'
+
 WINRATES_FP = RES / 'winrates.json'
-with WINRATES_FP.open() as fp:
-    WINRATES = json.load(fp)
+WINRATES = json.loads(WINRATES_FP.read_text())
 
 
 class Role(Button):
     name = StringProperty()
-
     files = {fp.stem: fp for fp in ROLES.iterdir()}
-    main = True
+    main = True  # Dropdown uses this to check if it's the original btn
 
     def on_name(self, *args):
         image_fp = self.files.get(self.name) or self.files['unknown']
@@ -56,6 +56,11 @@ class Role(Button):
 
 
 class Player(BoxLayout):
+    """
+    This uses old fashion properties instead of the Kivy ones
+    because of some timing issues with Session. Not that it doesn't
+    work, I just don't want to deal with it.
+    """
 
     _summoner_id = ''
     _champion_id = ''
@@ -122,10 +127,6 @@ class Player(BoxLayout):
             self.icon.clear_widgets()
 
 
-class Header(Label):
-    pass
-
-
 class PlayerList(BoxLayout):
 
     members = ListProperty()
@@ -145,6 +146,10 @@ class PlayerList(BoxLayout):
                 self.add_player(mem)
             else:
                 player.update(mem)
+        # Clear leftover
+        for player in bench:
+            self.team.remove_widget(player)
+            self.members.remove(player)
         self.sort_roles()
 
     def add_player(self, data):
@@ -158,6 +163,8 @@ class PlayerList(BoxLayout):
             for member in self.members:
                 yield member, member.get_roles()
 
+        # Doesn't account for a champion that has all its
+        # roles already taken.
         taken = set()
         for member, roles in sorted(map_roles(), key=lambda x: len(x[1])):
             for role in roles:
@@ -168,14 +175,31 @@ class PlayerList(BoxLayout):
 
 
 class MainPage(Screen):
+    """
+    A hot bowl of spaghetti that somehow works.
+    """
+
+    session = ObjectProperty(None)
 
     def __init__(self, *args, **kwds):
         super().__init__(*args, **kwds)
 
-        Clock.schedule_once(self.begin)
+        Clock.schedule_once(self.connect)
+
+    def connect(self, *args):
+        try:
+            self.session = Session()
+            self.manager.current = 'loading'
+            Clock.schedule_once(self.begin, -1)
+        except RestartRequiredError:
+            self.manager.current = 'restart'
+            Clock.schedule_once(self.connect, 5)
 
     def begin(self, *args):
         if not self.session.conn.connected:
+            # `client.reset` is expensive and blocks the animation,
+            # so we put it in a different thread and
+            # pretend we solved the problem.
             Thread(target=self.session.conn.client.reset).start()
             Clock.schedule_once(self.begin, 5)
             return
@@ -186,6 +210,9 @@ class MainPage(Screen):
     def refresh(self, *args):
         try:
             curr = self.session.get_current_session()
+        except RestartRequiredError:
+            curr = None
+            self.manager.current = 'restart'
         except ConnectionError:
             import sys
             sys.exit()
@@ -201,6 +228,10 @@ class LoadingPage(Screen):
     resdir = RES
 
 
+class RestartPage(Screen):
+    pass
+
+
 class Manager(ScreenManager):
     pass
 
@@ -214,7 +245,5 @@ class Result(BoxLayout):
 
 
 class AgainstLoLOddsApp(App):
-
     def build(self):
-        self.session = Session()
         return ManagerPage()

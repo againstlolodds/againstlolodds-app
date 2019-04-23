@@ -56,9 +56,6 @@
                 size_hint_x: .3
 
 
-<Header>:
-    font_size: '20sp'
-
 <PlayerList>:
     name: ""
     orientation: 'vertical'
@@ -97,10 +94,8 @@
 
 
 <MainPage>:
-    session: app.session
     name: 'main'
 
-    on_session: self.begin()
     BoxLayout:
         orientation: 'vertical'
         BoxLayout:
@@ -136,6 +131,12 @@
         Title:
             text: 'Waiting for selection phase to begin...'
 
+    
+<RestartPage>:
+    name: 'restart'
+    Label:
+        text: "A LoL config file has been updated.\nPlease restart the League of Legends client for it to take effect."
+
 
 <ManagerPage>:
     orientation: 'vertical'
@@ -151,4 +152,4 @@
 <Manager>:
     LoadingPage:
     MainPage:
-        session: app.session
+    RestartPage:
