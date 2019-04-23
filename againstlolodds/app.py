@@ -180,6 +180,7 @@ class MainPage(Screen):
             Thread(target=self.session.conn.client.reset).start()
             Clock.schedule_once(self.begin, 5)
             return
+
         self.session.start()
         Clock.schedule_interval(self.refresh, 1)
 
