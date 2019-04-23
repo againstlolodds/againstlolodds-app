@@ -1,6 +1,7 @@
 import json
 from threading import Thread
 from kivy.app import App
+from kivy.uix.image import Image
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.clock import Clock
@@ -114,6 +115,16 @@ class Player(BoxLayout):
     def champion_id(self, val):
         self._champion_id = val
         self.champion = self.__get_champion()
+        if self.champion:
+            self.icon.clear_widgets()
+            icon = self.session.get_champion_icon(self.champion_id)
+            image = Image(
+                texture=icon.texture,
+                pos=self.icon.pos,
+            )
+            self.icon.add_widget(image)
+        else:
+            self.icon.clear_widgets()
 
 
 class Header(Label):
@@ -184,6 +195,7 @@ class MainPage(Screen):
             sys.exit()
 
         if curr is not None:
+            curr = curr.json()
             self.manager.current = 'main'
             self.ids['team'].update(curr['myTeam'])
             self.ids['enemy'].update(curr['theirTeam'])

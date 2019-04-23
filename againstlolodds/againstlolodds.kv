@@ -22,16 +22,17 @@
 <Player>:
     session: None
     size_hint_y: None
-    height: '50sp'
+    height: '60sp'
 
     champion: ''
     name: ''
     role: ''
+    icon: icon
 
     on_champion: 
         display.champion.text = self.champion
         
-    on_name: display.name.text = self.name.center(40, '-')
+    on_name: display.name.text = ' '*3 + self.name
     on_role: display.role.name = self.role
     BoxLayout:
         id: display
@@ -39,14 +40,20 @@
         role: role
         name: name
         champion: champion
+
         Label:
             id: name
             color: (207 / 255, 181 / 255, 59 / 255, 1)
-            font_size: '15sp'
+            font_size: '17sp'
+            size_hint_x: None
+            on_texture_size: self.width = self.texture.width
         BoxLayout:
+            BoxLayout:
+                id: icon
+                size_hint_x: .3
             Label:
                 id: champion
-                font_size: '20sp'
+                font_size: '23sp'
             Role:
                 id: role
                 size_hint_x: .3
