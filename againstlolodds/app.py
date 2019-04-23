@@ -21,10 +21,6 @@ with WINRATES_FP.open() as fp:
     WINRATES = json.load(fp)
 
 
-class AttrLabel(Label):
-    pass
-
-
 class Role(Button):
     name = StringProperty()
     _manual_select = False
