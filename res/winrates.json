@@ -1,0 +1,1215 @@
+{
+    "Aatrox": {
+        "Name": "Aatrox",
+        "AvgWR": "49.1",
+        "SLOPE": 0.019173942222292,
+        "INTERCEPT": 0.405411389814612,
+        "role1": "TOP",
+        "role2": "JNG"
+    },
+    "Ahri": {
+        "Name": "Ahri",
+        "AvgWR": "53.5",
+        "SLOPE": 0.013564505507389,
+        "INTERCEPT": 0.48695941232151,
+        "role1": "MID"
+    },
+    "Akali": {
+        "Name": "Akali",
+        "AvgWR": "45.8",
+        "SLOPE": 0.01917017895854,
+        "INTERCEPT": 0.37280225594473,
+        "role1": "MID",
+        "role2": "TOP"
+    },
+    "Alistar": {
+        "Name": "Alistar",
+        "AvgWR": "49.7",
+        "SLOPE": 0.012959871330905,
+        "INTERCEPT": 0.463452214955127,
+        "role1": "SUP"
+    },
+    "Amumu": {
+        "Name": "Amumu",
+        "AvgWR": "50.7",
+        "SLOPE": 0.007542321996374,
+        "INTERCEPT": 0.490637743817986,
+        "role1": "JNG",
+        "role2": "TOP"
+    },
+    "Anivia": {
+        "Name": "Anivia",
+        "AvgWR": "52.4",
+        "SLOPE": 0.014527461227091,
+        "INTERCEPT": 0.471839469848009,
+        "role1": "MID",
+        "role2": "SUP",
+        "role3": "TOP"
+    },
+    "Annie": {
+        "Name": "Annie",
+        "AvgWR": "51.7",
+        "SLOPE": 0.004278192062467,
+        "INTERCEPT": 0.555849558341157,
+        "role1": "MID",
+        "role2": "SUP",
+        "role3": "TOP",
+        "role4": "BOT"
+    },
+    "Ashe": {
+        "Name": "Ashe",
+        "AvgWR": "52.7",
+        "SLOPE": 0.00907276165124,
+        "INTERCEPT": 0.466094590290385,
+        "role1": "BOT"
+    },
+    "Aurelion Sol": {
+        "Name": "Aurelion Sol",
+        "AvgWR": "50.9",
+        "SLOPE": 0.006226513550434,
+        "INTERCEPT": 0.516149757797981,
+        "role1": "MID",
+        "role2": "TOP"
+    },
+    "Azir": {
+        "Name": "Azir",
+        "AvgWR": "45.6",
+        "SLOPE": 0.01527495597608,
+        "INTERCEPT": 0.365676688298582,
+        "role1": "MID",
+        "role2": "TOP"
+    },
+    "Bard": {
+        "Name": "Bard",
+        "AvgWR": "51.2",
+        "SLOPE": 0.014959444693609,
+        "INTERCEPT": 0.455192250399837,
+        "role1": "SUP"
+    },
+    "Blitzcrank": {
+        "Name": "Blitzcrank",
+        "AvgWR": "51.3",
+        "SLOPE": 0.006579698392891,
+        "INTERCEPT": 0.507511316999208,
+        "role1": "SUP"
+    },
+    "Brand": {
+        "Name": "Brand",
+        "AvgWR": "53.3",
+        "SLOPE": 0.013682680895061,
+        "INTERCEPT": 0.472194696510799,
+        "role1": "SUP",
+        "role2": "MID"
+    },
+    "Braum": {
+        "Name": "Braum",
+        "AvgWR": "48.4",
+        "SLOPE": 0.012855027160306,
+        "INTERCEPT": 0.447846140727716,
+        "role1": "SUP"
+    },
+    "Caitlyn": {
+        "Name": "Caitlyn",
+        "AvgWR": "48.3",
+        "SLOPE": 0.012604305330821,
+        "INTERCEPT": 0.434691004675078,
+        "role1": "BOT"
+    },
+    "Camille": {
+        "Name": "Camille",
+        "AvgWR": "50.1",
+        "SLOPE": 0.020021382819217,
+        "INTERCEPT": 0.422539064229534,
+        "role1": "JNG",
+        "role2": "TOP"
+    },
+    "Cassiopeia": {
+        "Name": "Cassiopeia",
+        "AvgWR": "53.3",
+        "SLOPE": 0.012679921805633,
+        "INTERCEPT": 0.455979716563799,
+        "role1": "MID",
+        "role2": "TOP",
+        "role3": "BOT"
+    },
+    "Cho'Gath": {
+        "Name": "Cho'Gath",
+        "AvgWR": "48.9",
+        "SLOPE": 0.013588354378748,
+        "INTERCEPT": 0.429751604434823,
+        "role1": "TOP",
+        "role2": "MID",
+        "role3": "JNG"
+    },
+    "Corki": {
+        "Name": "Corki",
+        "AvgWR": "49.0",
+        "SLOPE": 0.011785566051816,
+        "INTERCEPT": 0.399595193517925,
+        "role1": "MID",
+        "role2": "BOT",
+        "role3": "TOP"
+    },
+    "Darius": {
+        "Name": "Darius",
+        "AvgWR": "50.0",
+        "SLOPE": 0.016086587558106,
+        "INTERCEPT": 0.461648046022781,
+        "role1": "TOP"
+    },
+    "Diana": {
+        "Name": "Diana",
+        "AvgWR": "50.7",
+        "SLOPE": 0.011423055425666,
+        "INTERCEPT": 0.454693288001032,
+        "role1": "MID",
+        "role2": "JNG",
+        "role3": "TOP"
+    },
+    "Dr. Mundo": {
+        "Name": "Dr. Mundo",
+        "AvgWR": "47.7",
+        "SLOPE": 0.013609553576887,
+        "INTERCEPT": 0.414881032702792,
+        "role1": "TOP",
+        "role2": "JNG"
+    },
+    "Draven": {
+        "Name": "Draven",
+        "AvgWR": "51.2",
+        "SLOPE": 0.017579128543989,
+        "INTERCEPT": 0.47395844677816,
+        "role1": "BOT"
+    },
+    "Ekko": {
+        "Name": "Ekko",
+        "AvgWR": "50.8",
+        "SLOPE": 0.016673119780053,
+        "INTERCEPT": 0.463013044527402,
+        "role1": "MID",
+        "role2": "JNG",
+        "role3": "TOP"
+    },
+    "Elise": {
+        "Name": "Elise",
+        "AvgWR": "51.5",
+        "SLOPE": 0.014722509302488,
+        "INTERCEPT": 0.435598536958647,
+        "role1": "JNG"
+    },
+    "Evelynn": {
+        "Name": "Evelynn",
+        "AvgWR": "51.1",
+        "SLOPE": 0.021073243167513,
+        "INTERCEPT": 0.40829588481255,
+        "role1": "JNG"
+    },
+    "Ezreal": {
+        "Name": "Ezreal",
+        "AvgWR": "48.6",
+        "SLOPE": 0.015612747973332,
+        "INTERCEPT": 0.40765423942441,
+        "role1": "BOT",
+        "role2": "MID"
+    },
+    "Fiddlesticks": {
+        "Name": "Fiddlesticks",
+        "AvgWR": "51.5",
+        "SLOPE": 0.013049168864672,
+        "INTERCEPT": 0.483964914536426,
+        "role1": "SUP",
+        "role2": "JNG",
+        "role3": "MID"
+    },
+    "Fiora": {
+        "Name": "Fiora",
+        "AvgWR": "50.1",
+        "SLOPE": 0.015462761787684,
+        "INTERCEPT": 0.445120858543514,
+        "role1": "TOP",
+        "role2": "MID"
+    },
+    "Fizz": {
+        "Name": "Fizz",
+        "AvgWR": "52.3",
+        "SLOPE": 0.014236006799307,
+        "INTERCEPT": 0.487054216480792,
+        "role1": "MID",
+        "role2": "TOP"
+    },
+    "Galio": {
+        "Name": "Galio",
+        "AvgWR": "49.0",
+        "SLOPE": 0.015645524198829,
+        "INTERCEPT": 0.398109729895249,
+        "role1": "MID",
+        "role2": "TOP",
+        "role3": "SUP"
+    },
+    "Gangplank": {
+        "Name": "Gangplank",
+        "AvgWR": "48.2",
+        "SLOPE": 0.015164669239127,
+        "INTERCEPT": 0.43357530982662,
+        "role1": "TOP",
+        "role2": "MID"
+    },
+    "Garen": {
+        "Name": "Garen",
+        "AvgWR": "52.1",
+        "SLOPE": 0.012713641949613,
+        "INTERCEPT": 0.477509430359979,
+        "role1": "TOP",
+        "role2": "MID"
+    },
+    "Gnar": {
+        "Name": "Gnar",
+        "AvgWR": "47.7",
+        "SLOPE": 0.011348355658132,
+        "INTERCEPT": 0.421366231281577,
+        "role1": "TOP"
+    },
+    "Gragas": {
+        "Name": "Gragas",
+        "AvgWR": "47.6",
+        "SLOPE": 0.015883166105424,
+        "INTERCEPT": 0.392992638671698,
+        "role1": "JNG",
+        "role2": "SUP",
+        "role3": "MID",
+        "role4": "TOP"
+    },
+    "Graves": {
+        "Name": "Graves",
+        "AvgWR": "50.6",
+        "SLOPE": 0.015455298656768,
+        "INTERCEPT": 0.466434963694409,
+        "role1": "JNG",
+        "role2": "TOP"
+    },
+    "Hecarim": {
+        "Name": "Hecarim",
+        "AvgWR": "49.1",
+        "SLOPE": 0.015708290716267,
+        "INTERCEPT": 0.433512663071434,
+        "role1": "JNG",
+        "role2": "TOP"
+    },
+    "Heimerdinger": {
+        "Name": "Heimerdinger",
+        "AvgWR": "52.2",
+        "SLOPE": 0.015658386358547,
+        "INTERCEPT": 0.462354932132426,
+        "role1": "TOP",
+        "role2": "BOT",
+        "role3": "MID"
+    },
+    "Illaoi": {
+        "Name": "Illaoi",
+        "AvgWR": "49.5",
+        "SLOPE": 0.012099930564165,
+        "INTERCEPT": 0.450243451699144,
+        "role1": "TOP",
+        "role2": "MID"
+    },
+    "Irelia": {
+        "Name": "Irelia",
+        "AvgWR": "47.9",
+        "SLOPE": 0.015613689796057,
+        "INTERCEPT": 0.425646726817985,
+        "role1": "TOP",
+        "role2": "MID"
+    },
+    "Ivern": {
+        "Name": "Ivern",
+        "AvgWR": "49.9",
+        "SLOPE": 0.016142794894691,
+        "INTERCEPT": 0.414427119725595,
+        "role1": "JNG",
+        "role2": "SUP"
+    },
+    "Janna": {
+        "Name": "Janna",
+        "AvgWR": "51.3",
+        "SLOPE": 0.015478784753768,
+        "INTERCEPT": 0.466478783669591,
+        "role1": "SUP"
+    },
+    "Jarvan IV": {
+        "Name": "Jarvan IV",
+        "AvgWR": "50.6",
+        "SLOPE": 0.009201406642069,
+        "INTERCEPT": 0.485845249919114,
+        "role1": "JNG",
+        "role2": "TOP",
+        "role3": "MID",
+        "role4": "SUP"
+    },
+    "Jax": {
+        "Name": "Jax",
+        "AvgWR": "52.9",
+        "SLOPE": 0.016226291098113,
+        "INTERCEPT": 0.472297107800287,
+        "role1": "TOP",
+        "role2": "JNG"
+    },
+    "Jayce": {
+        "Name": "Jayce",
+        "AvgWR": "50.0",
+        "SLOPE": 0.014242704307529,
+        "INTERCEPT": 0.429976890972127,
+        "role1": "TOP",
+        "role2": "MID"
+    },
+    "Jhin": {
+        "Name": "Jhin",
+        "AvgWR": "51.2",
+        "SLOPE": 0.013514416634431,
+        "INTERCEPT": 0.452534589160406,
+        "role1": "BOT"
+    },
+    "Jinx": {
+        "Name": "Jinx",
+        "AvgWR": "51.0",
+        "SLOPE": 0.010927523891731,
+        "INTERCEPT": 0.473221916835627,
+        "role1": "BOT"
+    },
+    "Kai'Sa": {
+        "Name": "Kai'Sa",
+        "AvgWR": "50.0",
+        "SLOPE": 0.022431730892604,
+        "INTERCEPT": 0.425475529976312,
+        "role1": "BOT"
+    },
+    "Kalista": {
+        "Name": "Kalista",
+        "AvgWR": "46.8",
+        "SLOPE": 0.013869293927481,
+        "INTERCEPT": 0.398733960752162,
+        "role1": "BOT"
+    },
+    "Karma": {
+        "Name": "Karma",
+        "AvgWR": "49.1",
+        "SLOPE": 0.013513735730138,
+        "INTERCEPT": 0.426357480234981,
+        "role1": "SUP",
+        "role2": "TOP",
+        "role3": "MID"
+    },
+    "Karthus": {
+        "Name": "Karthus",
+        "AvgWR": "52.8",
+        "SLOPE": 0.016296079959779,
+        "INTERCEPT": 0.469092660154538,
+        "role1": "MID",
+        "role2": "BOT",
+        "role3": "TOP",
+        "role4": "JNG",
+        "role5": "SUP"
+    },
+    "Kassadin": {
+        "Name": "Kassadin",
+        "AvgWR": "52.7",
+        "SLOPE": 0.017692800902732,
+        "INTERCEPT": 0.447720863474548,
+        "role1": "MID",
+        "role2": "TOP"
+    },
+    "Katarina": {
+        "Name": "Katarina",
+        "AvgWR": "51.1",
+        "SLOPE": 0.018394796766871,
+        "INTERCEPT": 0.450828529760899,
+        "role1": "MID",
+        "role2": "TOP"
+    },
+    "Kayle": {
+        "Name": "Kayle",
+        "AvgWR": "52.1",
+        "SLOPE": 0.009389163269555,
+        "INTERCEPT": 0.476633999075349,
+        "role1": "TOP",
+        "role2": "MID",
+        "role3": "SUP",
+        "role4": "JNG",
+        "role5": "BOT"
+    },
+    "Kayn": {
+        "Name": "Kayn",
+        "AvgWR": "51.4",
+        "SLOPE": 0.017130800125084,
+        "INTERCEPT": 0.445852488471281,
+        "role1": "JNG",
+        "role2": "TOP"
+    },
+    "Kennen": {
+        "Name": "Kennen",
+        "AvgWR": "51.4",
+        "SLOPE": 0.010741933169487,
+        "INTERCEPT": 0.486971604950931,
+        "role1": "TOP",
+        "role2": "MID",
+        "role3": "SUP",
+        "role4": "BOT"
+    },
+    "Kha'Zix": {
+        "Name": "Kha'Zix",
+        "AvgWR": "52.6",
+        "SLOPE": 0.020016629721913,
+        "INTERCEPT": 0.440656810975589,
+        "role1": "JNG"
+    },
+    "Kindred": {
+        "Name": "Kindred",
+        "AvgWR": "51.3",
+        "SLOPE": 0.01424965497059,
+        "INTERCEPT": 0.464035700420326,
+        "role1": "JNG"
+    },
+    "Kled": {
+        "Name": "Kled",
+        "AvgWR": "52.4",
+        "SLOPE": 0.017391427568677,
+        "INTERCEPT": 0.464364026815342,
+        "role1": "TOP",
+        "role2": "MID",
+        "role3": "JNG"
+    },
+    "Kog'Maw": {
+        "Name": "Kog'Maw",
+        "AvgWR": "51.2",
+        "SLOPE": 0.006672547364933,
+        "INTERCEPT": 0.459977582418559,
+        "role1": "BOT",
+        "role2": "MID"
+    },
+    "LeBlanc": {
+        "Name": "LeBlanc",
+        "AvgWR": "50.6",
+        "SLOPE": 0.012232933114767,
+        "INTERCEPT": 0.449624962258945,
+        "role1": "MID",
+        "role2": "SUP"
+    },
+    "Lee Sin": {
+        "Name": "Lee Sin",
+        "AvgWR": "49.6",
+        "SLOPE": 0.021088213404587,
+        "INTERCEPT": 0.404440680532543,
+        "role1": "JNG",
+        "role2": "TOP"
+    },
+    "Leona": {
+        "Name": "Leona",
+        "AvgWR": "50.7",
+        "SLOPE": 0.014563426271374,
+        "INTERCEPT": 0.467667346403574,
+        "role1": "SUP"
+    },
+    "Lissandra": {
+        "Name": "Lissandra",
+        "AvgWR": "51.3",
+        "SLOPE": 0.017750812528597,
+        "INTERCEPT": 0.446260839797745,
+        "role1": "MID",
+        "role2": "TOP"
+    },
+    "Lucian": {
+        "Name": "Lucian",
+        "AvgWR": "52.3",
+        "SLOPE": 0.021313376481548,
+        "INTERCEPT": 0.46902218248484,
+        "role1": "BOT",
+        "role2": "MID",
+        "role3": "TOP"
+    },
+    "Lulu": {
+        "Name": "Lulu",
+        "AvgWR": "49.4",
+        "SLOPE": 0.016035881257467,
+        "INTERCEPT": 0.421246938723514,
+        "role1": "SUP",
+        "role2": "MID",
+        "role3": "TOP"
+    },
+    "Lux": {
+        "Name": "Lux",
+        "AvgWR": "51.7",
+        "SLOPE": 0.014692459536339,
+        "INTERCEPT": 0.441156949974446,
+        "role1": "SUP",
+        "role2": "MID",
+        "role3": "BOT"
+    },
+    "Malphite": {
+        "Name": "Malphite",
+        "AvgWR": "50.3",
+        "SLOPE": 0.01069503903606,
+        "INTERCEPT": 0.452251966393916,
+        "role1": "TOP",
+        "role2": "SUP",
+        "role3": "MID",
+        "role4": "JNG"
+    },
+    "Malzahar": {
+        "Name": "Malzahar",
+        "AvgWR": "52.8",
+        "SLOPE": 0.014889919176851,
+        "INTERCEPT": 0.466431065929027,
+        "role1": "MID",
+        "role2": "TOP",
+        "role3": "SUP",
+        "role4": "BOT"
+    },
+    "Maokai": {
+        "Name": "Maokai",
+        "AvgWR": "51.8",
+        "SLOPE": 0.008767728640455,
+        "INTERCEPT": 0.465792654990229,
+        "role1": "TOP",
+        "role2": "SUP",
+        "role3": "JNG"
+    },
+    "Master Yi": {
+        "Name": "Master Yi",
+        "AvgWR": "51.2",
+        "SLOPE": 0.014163139320041,
+        "INTERCEPT": 0.4762548674055,
+        "role1": "JNG",
+        "role2": "TOP",
+        "role3": "MID"
+    },
+    "Miss Fortune": {
+        "Name": "Miss Fortune",
+        "AvgWR": "52.4",
+        "SLOPE": 0.00990649560845,
+        "INTERCEPT": 0.495246492976495,
+        "role1": "BOT",
+        "role2": "SUP"
+    },
+    "Mordekaiser": {
+        "Name": "Mordekaiser",
+        "AvgWR": "50.9",
+        "SLOPE": 0.009652181982875,
+        "INTERCEPT": 0.47193193680037,
+        "role1": "TOP",
+        "role2": "MID",
+        "role3": "BOT"
+    },
+    "Morgana": {
+        "Name": "Morgana",
+        "AvgWR": "50.6",
+        "SLOPE": 0.009275190034995,
+        "INTERCEPT": 0.462388747988877,
+        "role1": "SUP",
+        "role2": "MID"
+    },
+    "Nami": {
+        "Name": "Nami",
+        "AvgWR": "51.8",
+        "SLOPE": 0.012642831408194,
+        "INTERCEPT": 0.476693227107179,
+        "role1": "SUP"
+    },
+    "Nasus": {
+        "Name": "Nasus",
+        "AvgWR": "48.8",
+        "SLOPE": 0.01189957511317,
+        "INTERCEPT": 0.441667967840603,
+        "role1": "TOP",
+        "role2": "MID"
+    },
+    "Nautilus": {
+        "Name": "Nautilus",
+        "AvgWR": "49.2",
+        "SLOPE": 0.010675717807403,
+        "INTERCEPT": 0.445852442795102,
+        "role1": "SUP",
+        "role2": "TOP",
+        "role3": "JNG"
+    },
+    "Neeko": {
+        "Name": "Neeko",
+        "AvgWR": "47.8",
+        "SLOPE": 0.017517834,
+        "INTERCEPT": 0.45,
+        "role1": "MID",
+        "role2": "SUP",
+        "role3": "JNG",
+        "role4": "TOP",
+        "role5": "BOT"
+    },
+    "Nidalee": {
+        "Name": "Nidalee",
+        "AvgWR": "48.4",
+        "SLOPE": 0.018220868284476,
+        "INTERCEPT": 0.41840487234055,
+        "role1": "JNG",
+        "role2": "TOP",
+        "role3": "SUP"
+    },
+    "Nocturne": {
+        "Name": "Nocturne",
+        "AvgWR": "50.8",
+        "SLOPE": 0.013923241202469,
+        "INTERCEPT": 0.456259286406154,
+        "role1": "JNG",
+        "role2": "MID",
+        "role3": "TOP"
+    },
+    "Nunu & Willump": {
+        "Name": "Nunu & Willump",
+        "AvgWR": "49.9",
+        "SLOPE": 0.015126753942377,
+        "INTERCEPT": 0.450008465858085,
+        "role1": "JNG",
+        "role2": "SUP",
+        "role3": "TOP",
+        "role4": "MID"
+    },
+    "Olaf": {
+        "Name": "Olaf",
+        "AvgWR": "49.1",
+        "SLOPE": 0.012054731850884,
+        "INTERCEPT": 0.413620157198391,
+        "role1": "TOP",
+        "role2": "JNG",
+        "role3": "MID"
+    },
+    "Orianna": {
+        "Name": "Orianna",
+        "AvgWR": "49.7",
+        "SLOPE": 0.016996183226931,
+        "INTERCEPT": 0.41626155184266,
+        "role1": "MID",
+        "role2": "BOT",
+        "role3": "SUP",
+        "role4": "TOP"
+    },
+    "Ornn": {
+        "Name": "Ornn",
+        "AvgWR": "44.9",
+        "SLOPE": 0.019662433012224,
+        "INTERCEPT": 0.342654888647802,
+        "role1": "TOP",
+        "role2": "SUP",
+        "role3": "JNG"
+    },
+    "Pantheon": {
+        "Name": "Pantheon",
+        "AvgWR": "52.5",
+        "SLOPE": 0.010167378534295,
+        "INTERCEPT": 0.502948307476177,
+        "role1": "JNG",
+        "role2": "TOP",
+        "role3": "MID",
+        "role4": "SUP"
+    },
+    "Poppy": {
+        "Name": "Poppy",
+        "AvgWR": "50.3",
+        "SLOPE": 0.016635936337154,
+        "INTERCEPT": 0.436034291244377,
+        "role1": "TOP",
+        "role2": "JNG",
+        "role3": "SUP"
+    },
+    "Pyke": {
+        "Name": "Pyke",
+        "AvgWR": "50.4",
+        "SLOPE": 0.02053421279197,
+        "INTERCEPT": 0.422532815879639,
+        "role1": "SUP",
+        "role2": "MID",
+        "role3": "TOP",
+        "role4": "JNG"
+    },
+    "Quinn": {
+        "Name": "Quinn",
+        "AvgWR": "52.4",
+        "SLOPE": 0.010550574140998,
+        "INTERCEPT": 0.468367102664228,
+        "role1": "TOP",
+        "role2": "BOT",
+        "role3": "JNG",
+        "role4": "MID"
+    },
+    "Rakan": {
+        "Name": "Rakan",
+        "AvgWR": "48.6",
+        "SLOPE": 0.018338663620786,
+        "INTERCEPT": 0.428728163525016,
+        "role1": "SUP"
+    },
+    "Rammus": {
+        "Name": "Rammus",
+        "AvgWR": "52.2",
+        "SLOPE": 0.013668870505304,
+        "INTERCEPT": 0.470338770734904,
+        "role1": "JNG",
+        "role2": "TOP",
+        "role3": "SUP"
+    },
+    "Rek'Sai": {
+        "Name": "Rek'Sai",
+        "AvgWR": "50.6",
+        "SLOPE": 0.011910293162793,
+        "INTERCEPT": 0.442129764348907,
+        "role1": "JNG",
+        "role2": "TOP"
+    },
+    "Renekton": {
+        "Name": "Renekton",
+        "AvgWR": "50.3",
+        "SLOPE": 0.011867159338338,
+        "INTERCEPT": 0.471689983823339,
+        "role1": "TOP",
+        "role2": "MID"
+    },
+    "Rengar": {
+        "Name": "Rengar",
+        "AvgWR": "51.0",
+        "SLOPE": 0.018136451427763,
+        "INTERCEPT": 0.453624570516689,
+        "role1": "JNG",
+        "role2": "TOP",
+        "role3": "BOT"
+    },
+    "Riven": {
+        "Name": "Riven",
+        "AvgWR": "51.0",
+        "SLOPE": 0.020129236696289,
+        "INTERCEPT": 0.458373448739643,
+        "role1": "TOP",
+        "role2": "MID",
+        "role3": "JNG"
+    },
+    "Rumble": {
+        "Name": "Rumble",
+        "AvgWR": "50.6",
+        "SLOPE": 0.010543447083107,
+        "INTERCEPT": 0.504838125605217,
+        "role1": "TOP",
+        "role2": "MID",
+        "role3": "JNG",
+        "role4": "SUP"
+    },
+    "Ryze": {
+        "Name": "Ryze",
+        "AvgWR": "44.4",
+        "SLOPE": 0.01901593630356,
+        "INTERCEPT": 0.355104251036431,
+        "role1": "MID",
+        "role2": "TOP",
+        "role3": "BOT"
+    },
+    "Sejuani": {
+        "Name": "Sejuani",
+        "AvgWR": "45.4",
+        "SLOPE": 0.009830718347238,
+        "INTERCEPT": 0.390192278038108,
+        "role1": "JNG",
+        "role2": "TOP",
+        "role3": "SUP"
+    },
+    "Shaco": {
+        "Name": "Shaco",
+        "AvgWR": "53.9",
+        "SLOPE": 0.017508216626529,
+        "INTERCEPT": 0.472746771389587,
+        "role1": "JNG",
+        "role2": "TOP",
+        "role3": "SUP"
+    },
+    "Shen": {
+        "Name": "Shen",
+        "AvgWR": "49.0",
+        "SLOPE": 0.014845080127416,
+        "INTERCEPT": 0.416070215360861,
+        "role1": "TOP",
+        "role2": "SUP",
+        "role3": "JNG"
+    },
+    "Shyvana": {
+        "Name": "Shyvana",
+        "AvgWR": "49.8",
+        "SLOPE": 0.012249349945878,
+        "INTERCEPT": 0.430983075688388,
+        "role1": "JNG",
+        "role2": "TOP",
+        "role3": "MID"
+    },
+    "Singed": {
+        "Name": "Singed",
+        "AvgWR": "48.2",
+        "SLOPE": 0.015101559431258,
+        "INTERCEPT": 0.465846080192071,
+        "role1": "TOP",
+        "role2": "MID",
+        "role3": "SUP"
+    },
+    "Sion": {
+        "Name": "Sion",
+        "AvgWR": "52.2",
+        "SLOPE": 0.014566866076312,
+        "INTERCEPT": 0.46510325361885,
+        "role1": "TOP",
+        "role2": "SUP",
+        "role3": "MID"
+    },
+    "Sivir": {
+        "Name": "Sivir",
+        "AvgWR": "50.8",
+        "SLOPE": 0.013304775302662,
+        "INTERCEPT": 0.468552697127998,
+        "role1": "BOT"
+    },
+    "Skarner": {
+        "Name": "Skarner",
+        "AvgWR": "49.2",
+        "SLOPE": 0.009696590157119,
+        "INTERCEPT": 0.468816363700317,
+        "role1": "JNG",
+        "role2": "TOP"
+    },
+    "Sona": {
+        "Name": "Sona",
+        "AvgWR": "53.9",
+        "SLOPE": 0.012649016602529,
+        "INTERCEPT": 0.496910235631622,
+        "role1": "SUP",
+        "role2": "MID"
+    },
+    "Soraka": {
+        "Name": "Soraka",
+        "AvgWR": "51.6",
+        "SLOPE": 0.012572122364856,
+        "INTERCEPT": 0.471493043771338,
+        "role1": "SUP",
+        "role2": "TOP"
+    },
+    "Swain": {
+        "Name": "Swain",
+        "AvgWR": "50.4",
+        "SLOPE": 0.010859526748377,
+        "INTERCEPT": 0.447367043521438,
+        "role1": "TOP",
+        "role2": "MID",
+        "role3": "BOT",
+        "role4": "SUP"
+    },
+    "Syndra": {
+        "Name": "Syndra",
+        "AvgWR": "48.8",
+        "SLOPE": 0.012536517726325,
+        "INTERCEPT": 0.425158712726781,
+        "role1": "MID",
+        "role2": "SUP",
+        "role3": "BOT"
+    },
+    "Tahm Kench": {
+        "Name": "Tahm Kench",
+        "AvgWR": "46.3",
+        "SLOPE": 0.014070571768694,
+        "INTERCEPT": 0.387346844704886,
+        "role1": "SUP",
+        "role2": "TOP",
+        "role3": "JNG"
+    },
+    "Taliyah": {
+        "Name": "Taliyah",
+        "AvgWR": "50.4",
+        "SLOPE": 0.016486728777635,
+        "INTERCEPT": 0.466192642608991,
+        "role1": "JNG",
+        "role2": "MID",
+        "role3": "SUP",
+        "role4": "BOT"
+    },
+    "Talon": {
+        "Name": "Talon",
+        "AvgWR": "50.5",
+        "SLOPE": 0.015780751314881,
+        "INTERCEPT": 0.491405119372661,
+        "role1": "MID",
+        "role2": "TOP",
+        "role3": "JNG"
+    },
+    "Taric": {
+        "Name": "Taric",
+        "AvgWR": "52.1",
+        "SLOPE": 0.006319110611663,
+        "INTERCEPT": 0.529440539541019,
+        "role1": "SUP",
+        "role2": "TOP",
+        "role3": "MID",
+        "role4": "JNG"
+    },
+    "Teemo": {
+        "Name": "Teemo",
+        "AvgWR": "51.7",
+        "SLOPE": 0.013415304020206,
+        "INTERCEPT": 0.449630622759338,
+        "role1": "TOP",
+        "role2": "SUP",
+        "role3": "MID",
+        "role4": "BOT",
+        "role5": "JNG"
+    },
+    "Thresh": {
+        "Name": "Thresh",
+        "AvgWR": "50.8",
+        "SLOPE": 0.019588761218465,
+        "INTERCEPT": 0.46371959738945,
+        "role1": "SUP"
+    },
+    "Tristana": {
+        "Name": "Tristana",
+        "AvgWR": "48.1",
+        "SLOPE": 0.010647530592363,
+        "INTERCEPT": 0.442692804179828,
+        "role1": "BOT",
+        "role2": "MID"
+    },
+    "Trundle": {
+        "Name": "Trundle",
+        "AvgWR": "47.2",
+        "SLOPE": 0.009887590479554,
+        "INTERCEPT": 0.401821718777103,
+        "role1": "JNG",
+        "role2": "TOP",
+        "role3": "SUP"
+    },
+    "Tryndamere": {
+        "Name": "Tryndamere",
+        "AvgWR": "50.4",
+        "SLOPE": 0.014919365030342,
+        "INTERCEPT": 0.4503727489917,
+        "role1": "TOP",
+        "role2": "JNG",
+        "role3": "MID"
+    },
+    "Twisted Fate": {
+        "Name": "Twisted Fate",
+        "AvgWR": "50.5",
+        "SLOPE": 0.013259205181218,
+        "INTERCEPT": 0.463408961498686,
+        "role1": "MID",
+        "role2": "TOP",
+        "role3": "BOT",
+        "role4": "JNG"
+    },
+    "Twitch": {
+        "Name": "Twitch",
+        "AvgWR": "51.3",
+        "SLOPE": 0.011905869006434,
+        "INTERCEPT": 0.469394915453251,
+        "role1": "BOT",
+        "role2": "JNG"
+    },
+    "Udyr": {
+        "Name": "Udyr",
+        "AvgWR": "52.8",
+        "SLOPE": 0.015241137061086,
+        "INTERCEPT": 0.484349415415362,
+        "role1": "JNG",
+        "role2": "TOP"
+    },
+    "Urgot": {
+        "Name": "Urgot",
+        "AvgWR": "50.9",
+        "SLOPE": 0.01583969479192,
+        "INTERCEPT": 0.45829887697432,
+        "role1": "TOP",
+        "role2": "MID"
+    },
+    "Varus": {
+        "Name": "Varus",
+        "AvgWR": "48.3",
+        "SLOPE": 0.010152490223202,
+        "INTERCEPT": 0.437024609411307,
+        "role1": "BOT",
+        "role2": "MID"
+    },
+    "Vayne": {
+        "Name": "Vayne",
+        "AvgWR": "49.5",
+        "SLOPE": 0.015882458206363,
+        "INTERCEPT": 0.442941917930454,
+        "role1": "BOT",
+        "role2": "TOP"
+    },
+    "Veigar": {
+        "Name": "Veigar",
+        "AvgWR": "50.5",
+        "SLOPE": 0.014921934358791,
+        "INTERCEPT": 0.4592619663445,
+        "role1": "MID",
+        "role2": "SUP",
+        "role3": "BOT",
+        "role4": "TOP"
+    },
+    "Vel'Koz": {
+        "Name": "Vel'Koz",
+        "AvgWR": "52.1",
+        "SLOPE": 0.015110558177368,
+        "INTERCEPT": 0.449083512801698,
+        "role1": "SUP",
+        "role2": "MID",
+        "role3": "BOT",
+        "role4": "TOP"
+    },
+    "Vi": {
+        "Name": "Vi",
+        "AvgWR": "51.9",
+        "SLOPE": 0.00952609075782,
+        "INTERCEPT": 0.46392113350392,
+        "role1": "JNG",
+        "role2": "TOP"
+    },
+    "Viktor": {
+        "Name": "Viktor",
+        "AvgWR": "50.6",
+        "SLOPE": 0.016786126686989,
+        "INTERCEPT": 0.425168930126863,
+        "role1": "TOP",
+        "role2": "MID",
+        "role3": "BOT"
+    },
+    "Vladimir": {
+        "Name": "Vladimir",
+        "AvgWR": "50.8",
+        "SLOPE": 0.018007097720752,
+        "INTERCEPT": 0.439010758182543,
+        "role1": "MID",
+        "role2": "TOP",
+        "role3": "BOT"
+    },
+    "Volibear": {
+        "Name": "Volibear",
+        "AvgWR": "49.9",
+        "SLOPE": 0.008335152449014,
+        "INTERCEPT": 0.467121986708171,
+        "role1": "TOP",
+        "role2": "JNG",
+        "role3": "SUP",
+        "role4": "MID"
+    },
+    "Warwick": {
+        "Name": "Warwick",
+        "AvgWR": "52.4",
+        "SLOPE": 0.00880052864417,
+        "INTERCEPT": 0.505978647093644,
+        "role1": "JNG",
+        "role2": "TOP"
+    },
+    "Wukong": {
+        "Name": "Wukong",
+        "AvgWR": "52.7",
+        "SLOPE": 0.012358024901128,
+        "INTERCEPT": 0.490849999950133,
+        "role1": "JNG",
+        "role2": "TOP",
+        "role3": "MID",
+        "role4": "SUP",
+        "role5": "BOT"
+    },
+    "Xayah": {
+        "Name": "Xayah",
+        "AvgWR": "47.6",
+        "SLOPE": 0.013881005126651,
+        "INTERCEPT": 0.424080072583351,
+        "role1": "BOT"
+    },
+    "Xerath": {
+        "Name": "Xerath",
+        "AvgWR": "51.3",
+        "SLOPE": 0.011198550118367,
+        "INTERCEPT": 0.468630466959791,
+        "role1": "MID",
+        "role2": "SUP",
+        "role3": "BOT"
+    },
+    "Xin Zhao": {
+        "Name": "Xin Zhao",
+        "AvgWR": "50.6",
+        "SLOPE": 0.016619213865731,
+        "INTERCEPT": 0.456727083331699,
+        "role1": "JNG",
+        "role2": "TOP"
+    },
+    "Yasuo": {
+        "Name": "Yasuo",
+        "AvgWR": "48.9",
+        "SLOPE": 0.019713200117673,
+        "INTERCEPT": 0.433409069501822,
+        "role1": "MID",
+        "role2": "TOP",
+        "role3": "BOT",
+        "role4": "JNG"
+    },
+    "Yorick": {
+        "Name": "Yorick",
+        "AvgWR": "50.9",
+        "SLOPE": 0.005328259806144,
+        "INTERCEPT": 0.488055382272077,
+        "role1": "TOP",
+        "role2": "MID",
+        "role3": "JNG"
+    },
+    "Zac": {
+        "Name": "Zac",
+        "AvgWR": "49.7",
+        "SLOPE": 0.014259686301562,
+        "INTERCEPT": 0.435341062384055,
+        "role1": "JNG",
+        "role2": "SUP",
+        "role3": "TOP"
+    },
+    "Zed": {
+        "Name": "Zed",
+        "AvgWR": "52.2",
+        "SLOPE": 0.015292631527579,
+        "INTERCEPT": 0.460987758973597,
+        "role1": "MID",
+        "role2": "TOP"
+    },
+    "Ziggs": {
+        "Name": "Ziggs",
+        "AvgWR": "52.7",
+        "SLOPE": 0.00647834841712,
+        "INTERCEPT": 0.465893670631181,
+        "role1": "MID",
+        "role2": "BOT",
+        "role3": "SUP",
+        "role4": "TOP"
+    },
+    "Zilean": {
+        "Name": "Zilean",
+        "AvgWR": "52.8",
+        "SLOPE": 0.018106449962205,
+        "INTERCEPT": 0.452023655457122,
+        "role1": "SUP",
+        "role2": "MID",
+        "role3": "TOP"
+    },
+    "Zoe": {
+        "Name": "Zoe",
+        "AvgWR": "50.5",
+        "SLOPE": 0.017517833734815,
+        "INTERCEPT": 0.434085069898264,
+        "role1": "MID",
+        "role2": "SUP",
+        "role3": "BOT"
+    },
+    "Zyra": {
+        "Name": "Zyra",
+        "AvgWR": "54.2",
+        "SLOPE": 0.016552079012139,
+        "INTERCEPT": 0.470567890633583,
+        "role1": "SUP",
+        "role2": "MID"
+    }
+}

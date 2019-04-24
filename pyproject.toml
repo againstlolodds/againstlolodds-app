@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "againstlolodds"
+version = "0.1.0"
+description = "Companion app for https://againstlolodds.com"
+authors = ["Noah Corona <noa@coronasoftware.net>"]
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+requests = "^2.21"
+watchdog = "^0.9.0"
+psutil = "^5.6"
+lcu_connectorpy = "^1.1.0"
+docutils = "^0.14.0"
+pygments = "^2.3"
+pypiwin32 = "^223.0"
+"kivy.deps.sdl2" = "^0.1.18"
+"kivy.deps.angle" = "^0.1.7"
+"kivy.deps.gstreamer" = "^0.1.13"
+cython = "^0.29.7"
+kivy = "^1.10"
+"kivy.deps.glew" = "^0.1.10"
+pillow = "^6.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+flake8 = "^3.7"
+pyinstaller = "^3.4"
+pypiwin32 = "^223.0"
+pywin32-ctypes = "^0.2.0"
+
+[tool.poetry.scripts]
+start = "againstlolodds.main:run"
+build = "scripts:build"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

@@ -1,0 +1,7 @@
+.vscode
+*cache*
+*egg*
+*meta*
+build/build
+build/dist
+.python-version
