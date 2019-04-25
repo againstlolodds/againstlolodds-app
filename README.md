@@ -6,14 +6,7 @@
 ## Setup
 
 ### Depend: [Poetry](https://poetry.eustace.io/docs/#installation)
-The best way to install is through the provided tool (in docs), but it can also be done through pip.
 
-**Not reccomended.**
-```
-python -m pip install poetry
-```
-
-After installed, setup is as follows:
 ```
 python -m poetry install  # --no-dev for release
 ```
