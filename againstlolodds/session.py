@@ -1,8 +1,14 @@
-import requests as req
+import json
+import webbrowser
 import io
+import requests as req
 from lcu_connectorpy import Connector
 from operator import itemgetter
 from kivy.core.image import Image as CoreImage
+
+
+# SITE_URL = 'https://againstlolodds.com/'
+SITE_URL = 'http://127.0.0.1:8080/'
 
 
 class Session:
@@ -79,23 +85,16 @@ class Session:
         )
 
     def calculate(self, team, enemy):
-        # body = [
-        #     [{
-        #         'summonerName': member.name,
-        #         'role': member.role,
-        #         'champion': member.champion,
-        #         'override': None
-        #     } for member in team.values()],
-        #     [{
-        #         'role': member.role,
-        #         'champion': member.champion,
-        #     } for member in enemy.values()],
-        #     {
-        #         'region': 'na'
-        #     }
-        # ]
-        # import json
-        # headers = {'Content-Type': 'application/json'}
-        # r = req.post('https://againstlolodds.com:3000/api/calc', headers=headers, data=json.dumps(body))
-        # print(r.status_code)
-        return 100
+        players = json.dumps({
+            'team': [{
+                'summonerName': player.name,
+                'role': player.role,
+                'champion': player.champion
+            } for player in team.values()],
+
+            'enemy': [{
+                'role': player.role,
+                'champion': player.champion,
+            } for player in enemy.values()],
+        })
+        webbrowser.open(SITE_URL + f'calculate/{players}')

@@ -26,9 +26,9 @@
     role: ''
     icon: icon
 
-    on_champion: 
+    on_champion:
         display.champion.text = self.champion
-        
+
     on_name: display.name.text = ' '*3 + self.name
     on_role: display.role.name = self.role
     BoxLayout:
@@ -85,14 +85,6 @@
                     size: self.size
 
 
-<Result>:
-    size_hint_y: .5
-    val: 100
-    Label:
-        text: 'Prediction: {}%'.format(root.val)
-        font_size: '30sp'
-
-
 <MainPage>:
     name: 'main'
 
@@ -107,18 +99,14 @@
                 session: root.session
                 id: enemy
                 name: 'Enemy'
-        
+
         BoxLayout:
             size_hint_y: .2
             AnchorLayout:
                 Button:
                     text: 'Calculate'
                     size_hint: .4, .6
-                    on_release: result.val = root.session.calculate(team.members, enemy.members)
-            AnchorLayout:
-                anchor_x: 'right'    
-                Result:
-                    id: result
+                    on_release: root.session.calculate(team.members, enemy.members)
 
 
 <LoadingPage>:
@@ -131,7 +119,7 @@
         Title:
             text: 'Waiting for selection phase to begin...'
 
-    
+
 <RestartPage>:
     name: 'restart'
     Label:
