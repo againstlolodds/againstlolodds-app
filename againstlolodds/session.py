@@ -7,8 +7,8 @@ from operator import itemgetter
 from kivy.core.image import Image as CoreImage
 
 
-# SITE_URL = 'https://againstlolodds.com/'
-SITE_URL = 'http://127.0.0.1:8080/'
+SITE_URL = 'https://againstlolodds.com/'
+# SITE_URL = 'http://127.0.0.1:8080/'
 
 
 class Session:
@@ -90,11 +90,11 @@ class Session:
                 'summonerName': player.name,
                 'role': player.role,
                 'champion': player.champion
-            } for player in team.values()],
+            } for player in team],
 
             'enemy': [{
                 'role': player.role,
                 'champion': player.champion,
-            } for player in enemy.values()],
+            } for player in enemy],
         })
         webbrowser.open(SITE_URL + f'calculate/{players}')
