@@ -2,6 +2,7 @@ import json
 import webbrowser
 import io
 import requests as req
+import gzip
 from lcu_connectorpy import Connector
 from operator import itemgetter
 from kivy.core.image import Image as CoreImage
@@ -89,7 +90,8 @@ class Session:
             'team': [{
                 'summonerName': player.name,
                 'role': player.role,
-                'champion': player.champion
+                'champion': player.champion,
+                'id': player.summoner_id
             } for player in team.values()],
 
             'enemy': [{
@@ -97,4 +99,5 @@ class Session:
                 'champion': player.champion,
             } for player in enemy.values()],
         })
+        players = gzip.compress(bytes(players, 'utf-8'))
         webbrowser.open(SITE_URL + f'calculate/{players}')
