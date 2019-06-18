@@ -99,5 +99,5 @@ class Session:
                 'champion': player.champion,
             } for player in enemy],
         })
-        players = gzip.compress(bytes(players, 'utf-8'))
+        players = bytearray(players, 'utf-8').hex()
         webbrowser.open(SITE_URL + f'calculate/{players}')
