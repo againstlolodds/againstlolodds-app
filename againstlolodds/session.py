@@ -2,7 +2,6 @@ import json
 import webbrowser
 import io
 import requests as req
-import gzip
 from lcu_connectorpy import Connector
 from operator import itemgetter
 from kivy.core.image import Image as CoreImage
