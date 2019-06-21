@@ -25,7 +25,7 @@ WINRATES = json.loads(WINRATES_FP.read_text())
 class Role(Button):
     name = StringProperty()
     files = {fp.stem: fp for fp in ROLES.iterdir()}
-    main = True  # Dropdown uses this to check if it's the original btn
+    parent = None
 
     def on_name(self, *args):
         image_fp = self.files.get(self.name) or self.files['unknown']
@@ -33,11 +33,11 @@ class Role(Button):
         self.image.reload()
 
     def on_release(self, *args):
-        if not self.main:
+        if self.parent is not None:
             return
 
         def switch(btn):
-            self.name = btn.name
+            btn.parent.name = name
             self.dropdown.dismiss()
 
         self.dropdown = DropDown()
@@ -48,7 +48,7 @@ class Role(Button):
             role = Role(size_hint=(None, None))
             role.name = name
             role.size = self.size
-            role.main = False
+            role.parent = self
             role.bind(on_release=switch)
             self.dropdown.add_widget(role)
 
