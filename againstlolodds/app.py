@@ -37,7 +37,7 @@ class Role(Button):
             return
 
         def switch(btn):
-            btn.root_btn.name = name
+            btn.root_btn.name = btn.name
             self.dropdown.dismiss()
 
         self.dropdown = DropDown()
