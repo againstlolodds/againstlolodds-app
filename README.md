@@ -19,7 +19,7 @@ This does not violate Riot ToS (there is no risk of getting in trouble).
 4. Click the "Calculate" button in the companion app. This will open the [AgainstLoLOdds calculation page](https://againstlolodds.com/calculate) in your default web browser with all the necessary fields populated.
 5. Click the "Calculate" button on the website.
 6. Dodge when your win chance is below the first arrow if it's your first time, or below the second arrow if it's your second time.
-7. Repeat these steps as needed. Remember to wait 16 hours after your second dodge before dodging again.
+7. Repeat steps 2-7 as needed. Remember to wait 16 hours after your second dodge before dodging again.
 
 ## Support
 
